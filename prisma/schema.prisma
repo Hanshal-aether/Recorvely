@@ -1,0 +1,163 @@
+// Recoverly data model
+// Design rule: AuditLog rows are append-only. The app must never UPDATE or
+// DELETE an AuditLog row after it's written - that's what makes it an
+// audit trail rather than just another table.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum TransactionStatus {
+  pending // just ingested, not yet classified
+  classified // classified, waiting on a policy decision
+  action_taken // a retry or escalation has been executed
+  recovered // money was successfully collected
+  escalated // handed to update-payment-method or human review, not retried further
+  exhausted // hit max retry attempts, stopped
+}
+
+enum DeclineCategory {
+  soft_decline // insufficient funds, temporary bank error - safe to retry later
+  hard_decline // expired card, closed account - never blind-retry
+  auth_failure // 3DS timeout, OTP not entered - retry once with fresh auth
+  risk_block // issuer fraud flag - escalate to human review, never retry
+  unknown // classifier couldn't confidently categorize it
+}
+
+enum PolicyAction {
+  retry_now
+  retry_scheduled
+  escalate_update_method
+  escalate_review
+  stop
+}
+
+// A merchant is a company using Recoverly - everything else belongs to one.
+// This is the boundary that makes the system multi-tenant instead of a
+// single shared table anyone can read or write.
+model Merchant {
+  id        String   @id @default(cuid())
+  name      String
+  createdAt DateTime @default(now())
+
+  users        User[]
+  apiKeys      ApiKey[]
+  transactions Transaction[]
+}
+
+// A human who logs into the dashboard. Authenticated with a session
+// (NextAuth), never with the API key - the API key is for machines only.
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  role         String   @default("admin") // admin | viewer
+  merchantId   String
+  merchant     Merchant @relation(fields: [merchantId], references: [id])
+  createdAt    DateTime @default(now())
+}
+
+// A machine credential. A merchant's own backend authenticates to
+// POST /api/ingest with one of these, in an Authorization: Bearer header -
+// never a user's password. Only the hash is stored; the raw key is shown
+// once at creation time, exactly like Stripe/Razorpay's own API keys.
+model ApiKey {
+  id         String    @id @default(cuid())
+  keyHash    String    @unique
+  keyPrefix  String // first few chars, shown in the UI so a key can be identified without revealing it
+  merchantId String
+  merchant   Merchant  @relation(fields: [merchantId], references: [id])
+  createdAt  DateTime  @default(now())
+  lastUsedAt DateTime?
+
+  @@index([merchantId])
+}
+
+model Transaction {
+  id               String   @id @default(cuid())
+  externalId       String   @unique // id from the source payment system
+  merchantId       String
+  merchant         Merchant @relation(fields: [merchantId], references: [id])
+  customerId       String
+  subscriptionId   String?
+  amountPaise      Int // amount in paise (smallest INR unit)
+  currency         String   @default("INR")
+  declineCode      String // raw decline/error code from the payment gateway
+  declineMessage   String
+  attemptNumber    Int      @default(1)
+  originalFailedAt DateTime
+  status           TransactionStatus @default(pending)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  classifications  Classification[]
+  policyDecisions  PolicyDecision[]
+  retryAttempts    RetryAttempt[]
+  auditLogs        AuditLog[]
+
+  @@index([status])
+  @@index([declineCode])
+  @@index([merchantId])
+}
+
+model Classification {
+  id             String   @id @default(cuid())
+  transactionId  String
+  transaction    Transaction @relation(fields: [transactionId], references: [id])
+  category       DeclineCategory
+  confidence     Float // 0-1. Low-confidence LLM classifications get flagged for review.
+  method         String // "rule" | "llm"
+  reasoning      String? // short explanation, especially for LLM-classified ones
+  createdAt      DateTime @default(now())
+
+  @@index([transactionId])
+}
+
+model PolicyDecision {
+  id             String   @id @default(cuid())
+  transactionId  String
+  transaction    Transaction @relation(fields: [transactionId], references: [id])
+  action         PolicyAction
+  scheduledFor   DateTime? // when a retry_scheduled action should fire
+  reason         String // human-readable justification, goes in the audit trail
+  createdAt      DateTime @default(now())
+
+  @@index([transactionId])
+}
+
+model RetryAttempt {
+  id                 String   @id @default(cuid())
+  transactionId      String
+  transaction        Transaction @relation(fields: [transactionId], references: [id])
+  attemptNumber      Int
+  provider           String   @default("razorpay")
+  success            Boolean
+  razorpayOrderId    String?
+  razorpayPaymentId  String?
+  failureReason      String?
+  amountRecoveredPaise Int?
+  createdAt          DateTime @default(now())
+
+  @@index([transactionId])
+}
+
+// Append-only. Every classification, policy decision, and executed action
+// writes one row here in addition to its own table row. This is the single
+// place a judge (or a real ops team) can look to reconstruct exactly what
+// happened to any transaction and why.
+model AuditLog {
+  id            String   @id @default(cuid())
+  transactionId String?
+  transaction   Transaction? @relation(fields: [transactionId], references: [id])
+  eventType     String // "ingested" | "classified" | "policy_decided" | "action_executed" | "escalated" | "error"
+  payload       Json
+  createdAt     DateTime @default(now())
+
+  @@index([transactionId])
+  @@index([eventType])
+}
