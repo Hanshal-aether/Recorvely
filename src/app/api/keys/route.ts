@@ -15,7 +15,7 @@ export async function GET() {
 
   const keys = await prisma.apiKey.findMany({
     where: { merchantId },
-    select: { id: true, keyPrefix: true, createdAt: true, lastUsedAt: true },
+    select: { id: true, keyPrefix: true, createdAt: true, lastUsedAt: true, revokedAt: true },
     orderBy: { createdAt: "desc" },
   });
 

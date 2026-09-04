@@ -74,6 +74,9 @@ model ApiKey {
   merchant   Merchant  @relation(fields: [merchantId], references: [id])
   createdAt  DateTime  @default(now())
   lastUsedAt DateTime?
+  revokedAt  DateTime? // null = active. Revoking sets this instead of deleting the row,
+                        // so the fact a key existed and was later revoked stays visible -
+                        // consistent with treating history as something you never silently erase.
 
   @@index([merchantId])
 }

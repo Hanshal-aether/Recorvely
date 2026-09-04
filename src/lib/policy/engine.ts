@@ -15,6 +15,12 @@ export type PolicyDecisionResult = {
 
 const MAX_RETRY_ATTEMPTS = Number(process.env.MAX_RETRY_ATTEMPTS ?? 3);
 
+// Real production value is 24h - a card declined for insufficient funds
+// ten seconds ago is unlikely to succeed ten seconds later. For demos,
+// set RETRY_DELAY_MS to something short (e.g. 15000) so the scheduler
+// visibly picks the retry up without an actual day passing.
+const RETRY_DELAY_MS = Number(process.env.RETRY_DELAY_MS ?? 24 * 60 * 60 * 1000);
+
 /**
  * The core judgment call of the whole system. Given a classified failure
  * and how many times it's already been tried, decide what to do next -
@@ -45,7 +51,7 @@ export function decidePolicy(params: {
       // for insufficient funds ten seconds ago is unlikely to succeed if
       // retried ten seconds later. Spacing retries by a day gives a real
       // chance for balance/limit conditions to change.
-      const scheduledFor = new Date(Date.now() + 24 * 60 * 60 * 1000);
+      const scheduledFor = new Date(Date.now() + RETRY_DELAY_MS);
       return {
         action: "retry_scheduled",
         scheduledFor,

@@ -1,15 +1,17 @@
 :root {
-  --bg: #0E1512;
-  --surface: #151F1B;
-  --surface-2: #1C2822;
-  --border: #2A3830;
-  --text: #E8ECE9;
-  --text-dim: #8FA096;
-  --accent: #4FD1A5;
-  --accent-dim: #2E7A5B;
-  --warn: #E0A85C;
-  --danger: #E0715C;
+  --bg: #F6F9FF;
+  --surface: #FFFFFF;
+  --surface-2: #EEF3FE;
+  --border: #E1E9FA;
+  --text: #16213E;
+  --text-dim: #6B7A99;
+  --accent: #3B6FE0;
+  --accent-soft: #EAF0FF;
+  --accent-dim: #9DB8F2;
+  --warn: #C9822A;
+  --danger: #D14B4B;
   --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  --shadow: 0 1px 2px rgba(22, 33, 62, 0.04), 0 4px 16px rgba(22, 33, 62, 0.05);
 }
 
 * {
@@ -30,9 +32,31 @@ body {
   padding: 40px 24px 80px;
 }
 
+/* Soft animated blue/white gradient, used behind landing/login/signup -
+   the same kind of gentle motion as a modern consumer product intro,
+   deliberately not the flat dark "ops console" look of the dashboard. */
+.hero-gradient {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(60% 50% at 20% 10%, #DCE8FF 0%, transparent 60%),
+    radial-gradient(50% 40% at 85% 20%, #EDE4FF 0%, transparent 60%),
+    radial-gradient(70% 60% at 50% 100%, #E3F0FF 0%, transparent 60%),
+    #FBFCFF;
+  background-size: 140% 140%;
+  animation: heroDrift 18s ease-in-out infinite;
+}
+
+@keyframes heroDrift {
+  0%   { background-position: 0% 0%, 100% 0%, 50% 100%; }
+  50%  { background-position: 20% 20%, 80% 20%, 40% 90%; }
+  100% { background-position: 0% 0%, 100% 0%, 50% 100%; }
+}
+
 .eyebrow {
-  font-family: var(--mono);
   font-size: 12px;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
@@ -40,9 +64,11 @@ body {
 }
 
 h1 {
-  font-size: 28px;
-  font-weight: 500;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   margin: 0 0 6px;
+  color: var(--text);
 }
 
 .subtitle {
@@ -61,8 +87,9 @@ h1 {
 .stat-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 14px;
   padding: 18px 20px;
+  box-shadow: var(--shadow);
 }
 
 .stat-label {
@@ -71,12 +98,14 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   margin-bottom: 8px;
+  font-weight: 600;
 }
 
 .stat-value {
-  font-family: var(--mono);
   font-size: 26px;
-  font-weight: 500;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
 }
 
 .stat-value.accent { color: var(--accent); }
@@ -85,7 +114,7 @@ h1 {
 
 .section-title {
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   margin: 0 0 14px;
   color: var(--text);
 }
@@ -93,9 +122,10 @@ h1 {
 .panel {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 14px;
   overflow: hidden;
   margin-bottom: 32px;
+  box-shadow: var(--shadow);
 }
 
 table {
@@ -106,44 +136,87 @@ table {
 
 th {
   text-align: left;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-dim);
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  padding: 10px 16px;
+  padding: 12px 16px;
   border-bottom: 1px solid var(--border);
   background: var(--surface-2);
 }
 
 td {
-  padding: 10px 16px;
+  padding: 12px 16px;
   border-bottom: 1px solid var(--border);
   font-family: var(--mono);
+  color: var(--text);
 }
 
 tr:last-child td {
   border-bottom: none;
 }
 
+tr:hover td {
+  background: var(--accent-soft);
+}
+
 .badge {
   display: inline-block;
-  padding: 2px 8px;
+  padding: 3px 10px;
   border-radius: 999px;
   font-size: 11px;
   font-family: var(--mono);
+  font-weight: 600;
 }
 
 .badge.ingested { background: var(--surface-2); color: var(--text-dim); }
-.badge.classified { background: rgba(79, 209, 165, 0.12); color: var(--accent); }
-.badge.policy_decided { background: rgba(224, 168, 92, 0.12); color: var(--warn); }
-.badge.action_executed { background: rgba(79, 209, 165, 0.12); color: var(--accent); }
-.badge.escalated { background: rgba(224, 113, 92, 0.12); color: var(--danger); }
-.badge.error { background: rgba(224, 113, 92, 0.2); color: var(--danger); }
+.badge.classified { background: rgba(59, 111, 224, 0.1); color: var(--accent); }
+.badge.policy_decided { background: rgba(201, 130, 42, 0.12); color: var(--warn); }
+.badge.action_executed { background: rgba(59, 111, 224, 0.1); color: var(--accent); }
+.badge.escalated { background: rgba(209, 75, 75, 0.1); color: var(--danger); }
+.badge.error { background: rgba(209, 75, 75, 0.16); color: var(--danger); }
 
 .empty-state {
   padding: 40px 20px;
   text-align: center;
   color: var(--text-dim);
   font-size: 14px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(59, 111, 224, 0.25);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.input {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 14px;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }

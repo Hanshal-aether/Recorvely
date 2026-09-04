@@ -32,7 +32,7 @@ export async function verifyApiKey(raw: string): Promise<string | null> {
   const keyHash = createHash("sha256").update(raw).digest("hex");
   const apiKey = await prisma.apiKey.findUnique({ where: { keyHash } });
 
-  if (!apiKey) return null;
+  if (!apiKey || apiKey.revokedAt) return null;
 
   // Fire-and-forget usage tracking - don't block the request on this write.
   prisma.apiKey
