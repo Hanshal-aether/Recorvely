@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
-    "worker": "tsx watch src/workers/worker.ts", 
+    "worker": "tsx watch src/workers/worker.ts",
     "scheduler": "tsx scripts/runScheduledRetries.ts",
     "seed": "tsx scripts/generateSyntheticData.ts",
     "prisma:generate": "prisma generate",
@@ -24,14 +24,14 @@
     "next-auth": "^4.24.7",
     "razorpay": "^2.9.4",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "tsx": "^4.16.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20.14.0",
     "@types/react": "^18.3.3",
     "prisma": "^5.20.0",
-    "tsx": "^4.16.2",
     "typescript": "^5.5.4"
   }
 }
