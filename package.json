@@ -11,6 +11,7 @@
     "seed": "tsx scripts/generateSyntheticData.ts",
     "prisma:generate": "prisma generate",
     "prisma:push": "prisma db push",
+    "combined": "tsx combined-server.ts",
     "prisma:studio": "prisma studio"
   },
   "dependencies": {
