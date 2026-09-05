@@ -4,7 +4,7 @@
 
 Built for Razorpay's Buildathon — Track 3, AI Revenue Recovery.
 
-**Live demo:** _add your deployed Vercel URL here once deployed_
+**Live demo:** https://recoverly-phi.vercel.app/
 
 ---
 
