@@ -11,7 +11,8 @@
   --warn: #C9822A;
   --danger: #D14B4B;
   --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-  --shadow: 0 1px 2px rgba(22, 33, 62, 0.04), 0 4px 16px rgba(22, 33, 62, 0.05);
+  --shadow: 0 1px 3px rgba(22, 33, 62, 0.06), 0 2px 6px rgba(22, 33, 62, 0.04);
+  --shadow-lift: 0 4px 14px rgba(59, 111, 224, 0.12);
 }
 
 * {
@@ -52,6 +53,29 @@ body {
   0%   { background-position: 0% 0%, 100% 0%, 50% 100%; }
   50%  { background-position: 20% 20%, 80% 20%, 40% 90%; }
   100% { background-position: 0% 0%, 100% 0%, 50% 100%; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.fade-in-delay-1 { animation-delay: 0.08s; }
+.fade-in-delay-2 { animation-delay: 0.16s; }
+.fade-in-delay-3 { animation-delay: 0.24s; }
+.fade-in-delay-4 { animation-delay: 0.32s; }
+
+.lift-on-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.lift-on-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+  border-color: var(--accent-dim);
 }
 
 .eyebrow {
@@ -219,4 +243,13 @@ tr:hover td {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out both;
 }
