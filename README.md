@@ -6,6 +6,8 @@ Built for Razorpay's Buildathon — Track 3, AI Revenue Recovery.
 
 **Live demo:** https://recoverly-phi.vercel.app/
 
+> **Verification code:** TNRV54 _(GrowthX off-campus application)_
+
 ---
 
 ## The problem, in one line
@@ -130,4 +132,6 @@ Vercel for the Next.js app, Railway/Render for the worker and scheduler
 Supabase for Postgres, Upstash for Redis — managed infrastructure
 chosen deliberately to spend limited build time on product logic rather
 than ops, with an architecture decoupled enough that moving to
-self-managed infrastructure later is a config change, not a rewrite.
+self-managed infrastructure later is a config change, not a rewrite.  
+
+> **Verification code:** TNRV54 _(GrowthX off-campus application)_
