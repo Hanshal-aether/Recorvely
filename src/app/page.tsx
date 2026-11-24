@@ -15,8 +15,22 @@ const feats = [
 ];
 
 const faqs = [
+  ["What is Recoverly in one line?", "It watches your failed subscription payments, works out why each one failed, and decides the right next step: retry later, ask the customer to update their card, or flag it for a human."],
+  ["How is this different from Razorpay's own retries?", "Gateway retries follow a fixed schedule. Recoverly reads the decline reason first, so a temporary bank hiccup gets retried, while a stolen or expired card is not hammered again and the customer is asked to update instead. Every decision is explained in an audit trail."],
+  ["How do I connect it?", "Sign up, create an API key in the dashboard, and send each failed payment (decline code, message, amount) to the ingest endpoint from your backend or Razorpay webhook. No checkout changes are needed."],
+  ["Do I need to change my checkout or my customers' experience?", "No. Recoverly sits behind your payment flow. Your customers only notice that fewer of their subscriptions lapse."],
+  ["What does it cost?", "It is free while in early access. Pricing for larger merchants will be announced later, and it is designed to cost less than the revenue it recovers."],
+  ["Does Recoverly see card numbers or customer details?", "No. It only needs the decline code, the gateway message and the amount. The AI model never receives names, emails, card numbers or phone numbers."],
+  ["Is my data safe?", "Passwords and API keys are stored hashed, every query is scoped to your own account, and every action is written to an append-only audit trail."],
+  ["Which kinds of failures does it handle?", "Soft declines (like insufficient funds or bank timeouts), hard declines (like expired or blocked cards), authentication failures, and risk blocks. Each one has its own playbook."],
+  ["How many times will it retry a payment?", "At most 3 attempts. After that it stops and escalates, so your customer's bank is never spammed."],
+  ["What happens when a card is permanently dead?", "Recoverly does not keep retrying. It marks the payment to escalate so the customer is asked to update their payment method."],
+  ["Can I turn off or revoke access?", "Yes. You can revoke any API key in one click and it stops ingesting immediately."],
+  ["Can I use a different AI model?", "Yes. The model sits behind one swappable interface, so you can change providers without touching your payment logic."],
   ["Is the retry real?", "Order creation runs in Razorpay test mode. Retry completion is simulated and flagged simulated: true. Real saved-card charges are the next milestone."],
-  ["What reaches the AI?", "Only the decline code, the gateway message and the amount. No names, emails, cards or phone numbers."],
+  ["Is it ready for production?", "It is an early product. The pipeline, audit trail and security basics are in place, but live recurring charges are still being built, so treat it as a preview."],
+  ["Does it work with gateways other than Razorpay?", "Right now it is built around Razorpay. The decision engine is gateway-independent, so more gateways are possible later."],
+  ["Can my team use it together?", "Each account has an admin login today. Inviting teammates with roles is on the roadmap."],
   ["Who is it for?", "Any Razorpay merchant with monthly subscriptions losing customers to failed charges."],
 ];
 

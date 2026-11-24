@@ -74,8 +74,9 @@ function AuthShell({
   );
 }
 
-export default function LoginPage() {
+export default function SignupPage() {
   const router = useRouter();
+  const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -85,62 +86,59 @@ export default function LoginPage() {
     e.preventDefault();
     setLoading(true);
     setError(null);
+    const cleanEmail = email.trim().toLowerCase();
+
     try {
-      const res = await signIn("credentials", {
-        email: email.trim().toLowerCase(),
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ companyName, email: cleanEmail, password }),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(json.error ?? "Server problem, please try again in a moment.");
+        setLoading(false);
+        return;
+      }
+      const signInRes = await signIn("credentials", {
+        email: cleanEmail,
         password,
         redirect: false,
       });
-      if (res?.error) {
-        setError(
-          res.error === "CredentialsSignin"
-            ? "Wrong email or password."
-            : "Server problem, please try again in a moment."
-        );
-      } else {
-        router.push("/dashboard");
-      }
+      setLoading(false);
+      router.push(signInRes?.error ? "/login" : "/dashboard");
     } catch {
       setError("Network problem, please try again.");
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   return (
     <AuthShell
-      title="Welcome back"
-      sub="Log in to your recovery dashboard."
+      title="Create your account"
+      sub="Start recovering failed payments in minutes."
       footer={
         <>
-          No account? <Link href="/signup">Sign up</Link>
+          Already have an account? <Link href="/login">Log in</Link>
         </>
       }
     >
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Email</label>
-          <input
-            type="email"
-            autoCapitalize="none"
-            autoComplete="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          <label>Company name</label>
+          <input type="text" value={companyName} onChange={(e) => setCompanyName(e.target.value)} required />
         </div>
         <div>
-          <label>Password</label>
-          <input
-            type="password"
-            autoComplete="current-password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <label>Email</label>
+          <input type="email" autoCapitalize="none" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        </div>
+        <div>
+          <label>Password (min 8 characters)</label>
+          <input type="password" autoComplete="new-password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={8} />
         </div>
         {error && <p className="err">{error}</p>}
         <button type="submit" disabled={loading}>
-          {loading ? "Logging in..." : "Log in"}
+          {loading ? "Creating account..." : "Create account"}
         </button>
       </form>
     </AuthShell>
