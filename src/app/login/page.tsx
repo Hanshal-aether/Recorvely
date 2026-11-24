@@ -5,7 +5,17 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-function AuthShell({ title, sub, children, footer }: { title: string; sub: string; children: React.ReactNode; footer: React.ReactNode }) {
+function AuthShell({
+  title,
+  sub,
+  children,
+  footer,
+}: {
+  title: string;
+  sub: string;
+  children: React.ReactNode;
+  footer: React.ReactNode;
+}) {
   return (
     <main className="au">
       <style>{`
@@ -29,9 +39,31 @@ function AuthShell({ title, sub, children, footer }: { title: string; sub: strin
         .au .foot a{font-weight:700;color:#0057E7;text-decoration:underline}
         .au .cl{position:absolute;opacity:.95}
       `}</style>
-      <svg className="cl" viewBox="0 0 200 90" style={{ left: -40, bottom: 20, width: 280 }} aria-hidden><path d="M10 80 C0 80 0 62 16 60 C14 40 40 34 52 46 C58 22 96 18 106 42 C122 30 150 40 146 60 C168 56 186 70 176 80 Z" fill="#EFE8C5" /></svg>
-      <svg className="cl" viewBox="0 0 200 90" style={{ right: -30, top: 40, width: 220 }} aria-hidden><path d="M10 80 C0 80 0 62 16 60 C14 40 40 34 52 46 C58 22 96 18 106 42 C122 30 150 40 146 60 C168 56 186 70 176 80 Z" fill="#EFE8C5" /></svg>
-      <Link href="/" className="logo">Recoverly</Link>
+      <svg
+        className="cl"
+        viewBox="0 0 200 90"
+        style={{ left: -40, bottom: 20, width: 280 }}
+        aria-hidden
+      >
+        <path
+          d="M10 80 C0 80 0 62 16 60 C14 40 40 34 52 46 C58 22 96 18 106 42 C122 30 150 40 146 60 C168 56 186 70 176 80 Z"
+          fill="#EFE8C5"
+        />
+      </svg>
+      <svg
+        className="cl"
+        viewBox="0 0 200 90"
+        style={{ right: -30, top: 40, width: 220 }}
+        aria-hidden
+      >
+        <path
+          d="M10 80 C0 80 0 62 16 60 C14 40 40 34 52 46 C58 22 96 18 106 42 C122 30 150 40 146 60 C168 56 186 70 176 80 Z"
+          fill="#EFE8C5"
+        />
+      </svg>
+      <Link href="/" className="logo">
+        Recoverly
+      </Link>
       <div className="card">
         <h1>{title}</h1>
         <p className="sub">{sub}</p>
@@ -78,19 +110,38 @@ export default function LoginPage() {
     <AuthShell
       title="Welcome back"
       sub="Log in to your recovery dashboard."
-      footer={<>No account? <Link href="/signup">Sign up</Link></>}
+      footer={
+        <>
+          No account? <Link href="/signup">Sign up</Link>
+        </>
+      }
     >
       <form onSubmit={handleSubmit}>
         <div>
           <label>Email</label>
-          <input type="email" autoCapitalize="none" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          <input
+            type="email"
+            autoCapitalize="none"
+            autoComplete="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
         </div>
         <div>
           <label>Password</label>
-          <input type="password" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <input
+            type="password"
+            autoComplete="current-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
         </div>
         {error && <p className="err">{error}</p>}
-        <button type="submit" disabled={loading}>{loading ? "Logging in..." : "Log in"}</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "Logging in..." : "Log in"}
+        </button>
       </form>
     </AuthShell>
   );
