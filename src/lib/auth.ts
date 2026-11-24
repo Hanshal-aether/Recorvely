@@ -4,8 +4,6 @@ import bcrypt from "bcryptjs";
 import { prisma } from "./db";
 
 // Dashboard auth is deliberately separate from API key auth (apiKey.ts).
-// A human gets a session by logging in here; a merchant's backend
-// authenticates to /api/ingest with an API key. Never the same mechanism.
 export const authOptions: NextAuthOptions = {
   session: { strategy: "jwt" },
   pages: { signIn: "/login" },
@@ -19,8 +17,9 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) return null;
 
-        const user = await prisma.user.findUnique({
-          where: { email: credentials.email },
+        // Case-insensitive match so "Test@x.com" and "test@x.com" are the same account.
+        const user = await prisma.user.findFirst({
+          where: { email: { equals: credentials.email.trim(), mode: "insensitive" } },
         });
         if (!user) return null;
 
