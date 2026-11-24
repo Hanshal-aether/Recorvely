@@ -87,3 +87,11 @@ export default function LoginPage() {
         </div>
         <div>
           <label>Password</label>
+          <input type="password" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        </div>
+        {error && <p className="err">{error}</p>}
+        <button type="submit" disabled={loading}>{loading ? "Logging in..." : "Log in"}</button>
+      </form>
+    </AuthShell>
+  );
+}
