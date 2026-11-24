@@ -74,9 +74,8 @@ function AuthShell({
   );
 }
 
-export default function SignupPage() {
+export default function LoginPage() {
   const router = useRouter();
-  const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -86,53 +85,38 @@ export default function SignupPage() {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    const cleanEmail = email.trim().toLowerCase();
-
     try {
-      const res = await fetch("/api/auth/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ companyName, email: cleanEmail, password }),
-      });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok) {
-        setError(json.error ?? "Server problem, please try again in a moment.");
-        setLoading(false);
-        return;
-      }
-      const signInRes = await signIn("credentials", {
-        email: cleanEmail,
+      const res = await signIn("credentials", {
+        email: email.trim().toLowerCase(),
         password,
         redirect: false,
       });
-      setLoading(false);
-      router.push(signInRes?.error ? "/login" : "/dashboard");
+      if (res?.error) {
+        setError(
+          res.error === "CredentialsSignin"
+            ? "Wrong email or password."
+            : "Server problem, please try again in a moment."
+        );
+      } else {
+        router.push("/dashboard");
+      }
     } catch {
       setError("Network problem, please try again.");
-      setLoading(false);
     }
+    setLoading(false);
   }
 
   return (
     <AuthShell
-      title="Create your account"
-      sub="Start recovering failed payments in minutes."
+      title="Welcome back"
+      sub="Log in to your recovery dashboard."
       footer={
         <>
-          Already have an account? <Link href="/login">Log in</Link>
+          No account? <Link href="/signup">Sign up</Link>
         </>
       }
     >
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Company name</label>
-          <input
-            type="text"
-            value={companyName}
-            onChange={(e) => setCompanyName(e.target.value)}
-            required
-          />
-        </div>
         <div>
           <label>Email</label>
           <input
@@ -145,19 +129,18 @@ export default function SignupPage() {
           />
         </div>
         <div>
-          <label>Password (min 8 characters)</label>
+          <label>Password</label>
           <input
             type="password"
-            autoComplete="new-password"
+            autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            minLength={8}
           />
         </div>
         {error && <p className="err">{error}</p>}
         <button type="submit" disabled={loading}>
-          {loading ? "Creating account..." : "Create account"}
+          {loading ? "Logging in..." : "Log in"}
         </button>
       </form>
     </AuthShell>
