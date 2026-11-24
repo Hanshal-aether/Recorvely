@@ -46,6 +46,7 @@ export default function Home() {
         .rc .btn.y{background:var(--yel)}
         .rc .hero{position:relative;background:var(--blue);border:2.5px solid var(--ink);border-radius:40px;box-shadow:8px 8px 0 var(--ink);
           padding:64px 24px 130px;text-align:center;color:#fff;overflow:hidden}
+        .rc h1.hd{color:#fff !important}
         .rc h1{font-size:clamp(56px,11vw,128px);line-height:.95;letter-spacing:-.04em;margin:0;font-weight:800;text-shadow:5px 5px 0 var(--ink)}
         .rc .star{position:absolute;top:42px;right:calc(50% - 330px);font-size:56px;color:var(--yel);text-shadow:none}
         .rc .tagl{color:var(--yel);font-size:clamp(22px,3.5vw,32px);font-weight:700;margin:26px 0 14px}
