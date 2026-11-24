@@ -96,8 +96,7 @@ export default function LoginPage() {
         <button type="submit" disabled={loading}>{loading ? "Logging in..." : "Log in"}</button>
       </form>
     </AuthShell>
-  );
-}
+ 
 
 export default function SignupPage() {
   const router = useRouter();
