@@ -66,8 +66,8 @@ export default function Privacy() {
       <h2>AI processing</h2>
       <p>When a failure cannot be classified by our rules, only the decline code, the gateway message and the amount are sent to an AI model provider. No names, emails, phone numbers or card details are sent. We do not use your data to train third-party models.</p>
 
-      <h2>Who processes data for us</h2>
-      <p>We use trusted infrastructure providers to run Recoverly, including Vercel (hosting), a managed PostgreSQL database provider, Render (background jobs), Upstash (queues) and an AI model provider for classification fallback. They process data only to provide their services to us.</p>
+      <h2>Who handles your data</h2>
+      <p>We manage your data ourselves and run Recoverly on trusted infrastructure and service providers, who process it only to provide their services to us. If you would like to know which providers handle your data, email us at <a href="mailto:support.devtrials@gmail.com">support.devtrials@gmail.com</a> and we will tell you.</p>
 
       <h2>Cookies and local storage</h2>
       <p>We use a secure session cookie to keep you logged in. We also store a small note in your browser (local storage) to remember which setup steps you have completed. We do not use advertising trackers.</p>
