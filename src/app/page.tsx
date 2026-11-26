@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const steps = [
@@ -34,6 +37,27 @@ const faqs = [
   ["Who is it for?", "Any Razorpay merchant with monthly subscriptions losing customers to failed charges."],
 ];
 
+const stepInfo = [
+  { n: 1, t: "Create your account", m: "Takes about a minute", cta: "Get started free", href: "/signup" },
+  { n: 2, t: "Create your API key", m: "Dashboard → API keys", cta: "Open dashboard", href: "/dashboard" },
+  { n: 3, t: "Send your first failed payment", m: "From your backend or a webhook", cta: "Open dashboard", href: "/dashboard" },
+  { n: 4, t: "Win back your first payment", m: "Watch it appear in your audit trail", cta: "Open dashboard", href: "/dashboard" },
+];
+
+const principles = [
+  ["We never touch your money", "Your gateway charges and settles. Recoverly only reads failures and decides what to do next."],
+  ["Insights first, always free to start", "See why payments fail before you trust us with anything else."],
+  ["Works with any gateway", "Razorpay today. The decision engine is built to sit on top of other gateways."],
+  ["Customer data stays out of the AI", "Only the decline code, message and amount are ever analysed."],
+];
+
+const coming = [
+  ["Upload your history", "Drop in an Excel or .sql export of past failures and get insights and retry plans without writing code."],
+  ["Our own classifier", "A model trained on real declines, kept alongside rules that we review against current gateway and regulator guidelines every 30 days."],
+  ["Recovery links", "Send customers to their gateway's own page to update a card or re-approve a mandate."],
+  ["More gateways", "Stripe, PayPal and others through simple adapters."],
+];
+
 const Cloud = ({ style }: { style: React.CSSProperties }) => (
   <svg viewBox="0 0 200 90" style={{ position: "absolute", ...style }} aria-hidden>
     <path d="M10 80 C0 80 0 62 16 60 C14 40 40 34 52 46 C58 22 96 18 106 42 C122 30 150 40 146 60 C168 56 186 70 176 80 Z" fill="#EFE8C5" />
@@ -41,9 +65,19 @@ const Cloud = ({ style }: { style: React.CSSProperties }) => (
 );
 
 export default function Home() {
+  const [done, setDone] = useState<number[]>([]);
+  useEffect(() => {
+    try {
+      const raw = JSON.parse(localStorage.getItem("recoverly_steps") || "[]");
+      if (Array.isArray(raw)) setDone(raw.filter((n) => typeof n === "number"));
+    } catch {}
+  }, []);
+  const count = stepInfo.filter((x) => done.includes(x.n)).length;
+  const next = stepInfo.find((x) => !done.includes(x.n));
   return (
     <main className="rc">
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Outfit:wght@400;500;600;700&display=swap');
         .rc{--ink:#1B1633;--blue:#0057E7;--yel:#FFD93B;--grn:#22E39B;--lav:#D9D2EE;--cream:#FFF4CC;
           background:#fff;color:var(--ink);font-family:Outfit,system-ui,sans-serif;min-height:100vh;padding:24px 16px 60px}
@@ -128,26 +162,33 @@ export default function Home() {
 
         <div className="panel">
           <div className="row">
-            <svg className="mascot" viewBox="0 0 84 84" aria-hidden>
-              <rect x="8" y="14" width="68" height="46" rx="10" fill="#FFE500" stroke="#1B1633" strokeWidth="3" />
-              <rect x="8" y="26" width="68" height="9" fill="#1B1633" />
-              <rect x="18" y="45" width="22" height="6" rx="3" fill="#1B1633" />
-              <path d="M26 60 v10 h-8 M58 60 v10 h8" stroke="#1B1633" strokeWidth="3" fill="none" strokeLinecap="round" />
+            <svg className="mascot" viewBox="0 0 170 108" style={{ width: 160, height: 102 }} aria-hidden>
+              <rect x="8" y="8" width="160" height="98" rx="14" fill="#1B1633" />
+              <rect x="2" y="2" width="160" height="98" rx="14" fill="#14102B" stroke="#E6C066" strokeWidth="2" />
+              <text x="16" y="20" fontSize="6.5" letterSpacing="1.6" fill="#FFFFFF" fontFamily="Outfit, sans-serif" fontWeight="600">PAYMENT RECOVERED</text>
+              <rect x="16" y="28" width="26" height="19" rx="4" fill="#E6C066" />
+              <path d="M16 37.5 H42 M29 28 V47" stroke="#14102B" strokeWidth="1" />
+              <text x="16" y="64" fontSize="9.5" letterSpacing="1.4" fill="#FFFFFF" fontFamily="Outfit, sans-serif" fontWeight="500">•••• •••• •••• 4242</text>
+              <text x="14" y="90" fontSize="30" fill="#E6C066" fontFamily="'Great Vibes', cursive">Recoverly</text>
+              <text x="118" y="92" fontSize="6.5" letterSpacing="1" fill="#FFFFFF" fontFamily="Outfit, sans-serif">VALID ✓</text>
             </svg>
             <div>
-              <span className="badge">Start here</span>
-              <h3 className="pt hd"><small>01.01</small>Recover your first failed payment</h3>
-              <div className="meta">Step 1 · Connect your Razorpay account · 2 min</div>
+              <span className="badge">{count === 0 ? "Start here" : count === 4 ? "All done" : "Next up"}</span>
+              <h3 className="pt hd">
+                <small>{next ? "0" + next.n : "04"}</small>
+                {next ? next.t : "You have recovered your first payment"}
+              </h3>
+              <div className="meta">{next ? next.m : "Keep an eye on your dashboard for new recoveries"}</div>
             </div>
             <div className="acts">
-              <Link className="btn b" href="/signup">Get started free</Link>
+              <Link className="btn b" href={next ? next.href : "/dashboard"}>{next ? next.cta : "Open dashboard"}</Link>
               <a className="btn" href="#how">How it works</a>
             </div>
           </div>
           <div className="dash" />
           <div className="prog">
-            <span>0 of 4 steps done</span>
-            <div className="track"><i /></div>
+            <span>{count} of 4 steps done</span>
+            <div className="track"><i style={{ width: Math.max(count * 25, 4) + "%" }} /></div>
           </div>
         </div>
 
@@ -177,6 +218,26 @@ export default function Home() {
           <b>Retry completion is simulated today.</b> Order creation runs against Razorpay test mode and the final charge is flagged <b>simulated: true</b>. Real saved-card recurring charges are next on the roadmap.
         </div>
 
+        <h2 className="hd">What we stand for</h2>
+        <div className="g">
+          {principles.map(([t, d], i) => (
+            <div className="card" key={t} style={{ background: ["#FFD93B", "#22E39B", "#D9D2EE", "#FFFFFF"][i] }}>
+              <h3 className="hd">{t}</h3>
+              <p>{d}</p>
+            </div>
+          ))}
+        </div>
+
+        <h2 className="hd">Coming next</h2>
+        <div className="g">
+          {coming.map(([t, d]) => (
+            <div className="card" key={t}>
+              <h3 className="hd">{t}</h3>
+              <p>{d}</p>
+            </div>
+          ))}
+        </div>
+
         <h2 className="hd">Questions</h2>
         {faqs.map(([q, a]) => (
           <details key={q}>
@@ -190,7 +251,15 @@ export default function Home() {
           <Link className="btn b" href="/signup" style={{ fontSize: 20, padding: "14px 30px" }}>Get started free</Link>
         </div>
 
-        <footer>© 2026 Recoverly</footer>
+        <footer>
+          <div style={{ display: "flex", gap: 20, justifyContent: "center", flexWrap: "wrap", marginBottom: 10, fontWeight: 600 }}>
+            <Link href="/about">About</Link>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
+            <a href="mailto:support.devtrials@gmail.com">Contact</a>
+          </div>
+          © 2026 Recoverly
+        </footer>
       </div>
     </main>
   );

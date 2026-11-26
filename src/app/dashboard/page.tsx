@@ -54,6 +54,18 @@ export default function Dashboard() {
     return () => clearInterval(interval);
   }, []);
 
+  // Remember onboarding progress on this device so the landing page can show it.
+  useEffect(() => {
+    try {
+      const done = new Set<number>(JSON.parse(localStorage.getItem("recoverly_steps") || "[]"));
+      done.add(1);
+      if (apiKeys.length > 0 || newKey) done.add(2);
+      if (metrics && metrics.totals.total > 0) done.add(3);
+      if (metrics && metrics.totals.recovered > 0) done.add(4);
+      localStorage.setItem("recoverly_steps", JSON.stringify(Array.from(done)));
+    } catch {}
+  }, [apiKeys, newKey, metrics]);
+
   async function createKey() {
     const res = await fetch("/api/keys", { method: "POST" });
     const json = await res.json();
