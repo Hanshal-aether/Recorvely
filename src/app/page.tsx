@@ -103,7 +103,7 @@ export default function Home() {
 
       <div className="w">
         <div className="bar">
-          <div className="logo hd">Recoverly</div>
+          <div className="logo hd" style={{ display: "flex", alignItems: "center" }}><svg width="34" height="34" viewBox="0 0 64 64" style={{ marginRight: 10 }} aria-hidden><rect x="7" y="7" width="54" height="54" rx="15" fill="#1B1633"/><rect x="3" y="3" width="54" height="54" rx="15" fill="#0057E7" stroke="#1B1633" strokeWidth="4"/><path d="M42 22 A14 14 0 1 0 44 34" fill="none" stroke="#fff" strokeWidth="6" strokeLinecap="round"/><path d="M33 12 L47 22 L34 30 Z" fill="#FFD93B" stroke="#1B1633" strokeWidth="2.5" strokeLinejoin="round"/><circle cx="30" cy="30" r="5.5" fill="#FFD93B" stroke="#1B1633" strokeWidth="2.5"/></svg>Recoverly</div>
           <div style={{ display: "flex", gap: 12 }}>
             <Link className="btn" href="/login">Log in</Link>
             <Link className="btn b" href="/signup">Sign up</Link>
