@@ -30,6 +30,132 @@ function formatRupees(paise: number) {
   return `₹${(paise / 100).toLocaleString("en-IN", { maximumFractionDigits: 0 })}`;
 }
 
+type ImportPreview = {
+  fileName: string;
+  totalRows: number;
+  valid: number;
+  skippedCount: number;
+  skipped: { row: number; reason: string }[];
+  warnings: string[];
+  sample: { id: string; amountRupees: number; code: string; message: string; failedAt: string }[];
+};
+
+function ImportCard() {
+  const [file, setFile] = useState<File | null>(null);
+  const [preview, setPreview] = useState<ImportPreview | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [done, setDone] = useState<string | null>(null);
+
+  async function send(f: File, confirm: boolean) {
+    const form = new FormData();
+    form.append("file", f);
+    if (confirm) form.append("confirm", "1");
+    const res = await fetch("/api/import", { method: "POST", body: form });
+    const json = await res.json().catch(() => ({}));
+    return { ok: res.ok, json };
+  }
+
+  async function onPick(f: File | null) {
+    setPreview(null); setError(null); setDone(null); setFile(f);
+    if (!f) return;
+    setBusy(true);
+    const { ok, json } = await send(f, false);
+    setBusy(false);
+    if (!ok) { setError(json.error ?? "Could not read that file."); return; }
+    setPreview(json);
+  }
+
+  async function confirmImport() {
+    if (!file) return;
+    setBusy(true); setError(null);
+    const { ok, json } = await send(file, true);
+    setBusy(false);
+    if (!ok) { setError(json.error ?? "Import failed."); return; }
+    setDone(
+      `Imported ${json.imported} payment${json.imported === 1 ? "" : "s"}` +
+        (json.alreadyImported ? `, ${json.alreadyImported} were already imported` : "") +
+        ". They will appear below as they are classified."
+    );
+    setPreview(null); setFile(null);
+  }
+
+  function downloadTemplate() {
+    const csv =
+      "transaction_id,customer_id,amount,decline_code,decline_message,failed_at\n" +
+      "txn_1001,cust_1,499,insufficient_funds,Insufficient funds in account,2026-11-20\n" +
+      "txn_1002,cust_2,1299,card_expired,Card has expired,2026-11-21\n";
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
+    a.download = "recoverly-template.csv";
+    a.click();
+  }
+
+  return (
+    <>
+      <p className="section-title">Import payment history</p>
+      <div className="panel" style={{ padding: 16 }}>
+        <p style={{ color: "var(--text-dim)", fontSize: 13, marginTop: 0 }}>
+          Upload an Excel (.xlsx), CSV or .sql export of failed payments. We read the rows,
+          show you what we understood, and only import after you confirm. SQL files are never
+          run, and your file is not stored. Payments older than 30 days are analysed but never retried.
+        </p>
+        <div style={{ display: "flex", gap: 10, flexWrap: "wrap", alignItems: "center", marginBottom: 12 }}>
+          <input
+            type="file"
+            accept=".xlsx,.csv,.sql"
+            onChange={(e) => onPick(e.target.files?.[0] ?? null)}
+            disabled={busy}
+          />
+          <button onClick={downloadTemplate} className="btn-secondary" style={{ padding: "4px 10px", fontSize: 12 }}>
+            Download template
+          </button>
+        </div>
+        {busy && <p style={{ fontSize: 13 }}>Working…</p>}
+        {error && <p style={{ color: "var(--danger)", fontSize: 13 }}>{error}</p>}
+        {done && <p style={{ color: "var(--accent)", fontSize: 13 }}>{done}</p>}
+        {preview && (
+          <div>
+            <p style={{ fontSize: 14, marginBottom: 6 }}>
+              <b>{preview.valid}</b> of {preview.totalRows} rows look valid
+              {preview.skippedCount > 0 && <> · {preview.skippedCount} will be skipped</>}
+            </p>
+            {preview.warnings.map((w, i) => (
+              <p key={i} style={{ color: "var(--warn)", fontSize: 12, margin: "2px 0" }}>{w}</p>
+            ))}
+            {preview.skipped.length > 0 && (
+              <p style={{ color: "var(--text-dim)", fontSize: 12 }}>
+                Skipped: {preview.skipped.map((s) => `row ${s.row} (${s.reason})`).join(", ")}
+                {preview.skippedCount > preview.skipped.length ? ", …" : ""}
+              </p>
+            )}
+            <table>
+              <thead><tr><th>ID</th><th>Amount</th><th>Code</th><th>Reason</th><th>Failed on</th></tr></thead>
+              <tbody>
+                {preview.sample.map((s) => (
+                  <tr key={s.id}>
+                    <td>{s.id}</td>
+                    <td>₹{s.amountRupees.toLocaleString("en-IN")}</td>
+                    <td>{s.code}</td>
+                    <td>{s.message}</td>
+                    <td>{new Date(s.failedAt).toLocaleDateString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div style={{ display: "flex", gap: 10, marginTop: 12 }}>
+              <button onClick={confirmImport} className="btn-primary" disabled={busy || preview.valid === 0}>
+                Import {preview.valid} payment{preview.valid === 1 ? "" : "s"}
+              </button>
+              <button onClick={() => { setPreview(null); setFile(null); }} className="btn-secondary">Cancel</button>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
+  );
+}
+
 export default function Dashboard() {
   const [metrics, setMetrics] = useState<Metrics | null>(null);
   const [apiKeys, setApiKeys] = useState<ApiKey[]>([]);
@@ -119,6 +245,8 @@ export default function Dashboard() {
         Classifies failed payments, decides the right recovery action, executes it, and logs
         every step. Live view, refreshes every 5s.
       </p>
+
+      <ImportCard />
 
       <p className="section-title">API keys</p>
       <div className="panel" style={{ padding: 16 }}>

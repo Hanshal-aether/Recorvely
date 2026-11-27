@@ -32,11 +32,26 @@ const RETRY_DELAY_MS = Number(process.env.RETRY_DELAY_MS ?? 24 * 60 * 60 * 1000)
  * for looking like abuse - so hard declines and risk blocks never retry
  * automatically, regardless of attempt count.
  */
+// Failures older than this are kept for insights but never retried: charging
+// a customer for something that failed months ago is unexpected and risky.
+const STALE_AFTER_DAYS = Number(process.env.STALE_AFTER_DAYS ?? 30);
+
 export function decidePolicy(params: {
   category: DeclineCategory;
   attemptNumber: number;
+  originalFailedAt?: Date;
 }): PolicyDecisionResult {
-  const { category, attemptNumber } = params;
+  const { category, attemptNumber, originalFailedAt } = params;
+
+  if (
+    originalFailedAt &&
+    Date.now() - originalFailedAt.getTime() > STALE_AFTER_DAYS * 24 * 60 * 60 * 1000
+  ) {
+    return {
+      action: "stop",
+      reason: `This payment failed more than ${STALE_AFTER_DAYS} days ago. Kept for insights only, never retried automatically.`,
+    };
+  }
 
   if (attemptNumber > MAX_RETRY_ATTEMPTS) {
     return {

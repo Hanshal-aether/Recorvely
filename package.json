@@ -12,7 +12,10 @@
     "prisma:generate": "prisma generate",
     "prisma:push": "prisma db push",
     "combined": "tsx ./combined-server.ts",
-    "prisma:studio": "prisma studio"
+    "prisma:studio": "prisma studio",
+    "ml:data": "python3 ml/gen_data.py",
+    "ml:train": "python3 ml/train.py",
+    "ml:check": "python3 ml/parity_test.py && tsx ml/parity_check.ts"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
@@ -26,6 +29,7 @@
     "razorpay": "^2.9.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "read-excel-file": "^5.8.8",
     "tsx": "^4.16.2"
   },
   "devDependencies": {

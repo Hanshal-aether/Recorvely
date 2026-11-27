@@ -1,0 +1,57 @@
+[
+ {
+  "code": "insufficient_funds",
+  "message": "Not enough money",
+  "probs": {
+   "auth_failure": 0.010768785806931096,
+   "hard_decline": 0.012353120944705337,
+   "risk_block": 0.006029739785037887,
+   "soft_decline": 0.9558500349993343,
+   "unknown": 0.014998318463991349
+  }
+ },
+ {
+  "code": "EXPIRED_CARD",
+  "message": "card is expired",
+  "probs": {
+   "auth_failure": 0.00709361296701246,
+   "hard_decline": 0.9894771882825627,
+   "risk_block": 0.0006925861425463374,
+   "soft_decline": 0.0012548815956661536,
+   "unknown": 0.0014817310122121402
+  }
+ },
+ {
+  "code": "xyz_unknown",
+  "message": "something weird",
+  "probs": {
+   "auth_failure": 0.10478357592680895,
+   "hard_decline": 0.21483412616477543,
+   "risk_block": 0.058072289158082324,
+   "soft_decline": 0.203409178191176,
+   "unknown": 0.4189008305591574
+  }
+ },
+ {
+  "code": "otp_not_entered",
+  "message": "OTP not entered in time",
+  "probs": {
+   "auth_failure": 0.9339872195614536,
+   "hard_decline": 0.008862424691637859,
+   "risk_block": 0.0052495253339857745,
+   "soft_decline": 0.03583418265962724,
+   "unknown": 0.016066647753295617
+  }
+ },
+ {
+  "code": "risk_threshold_exceeded",
+  "message": "Blocked by risk engine",
+  "probs": {
+   "auth_failure": 0.001871787300294735,
+   "hard_decline": 0.001189822955969098,
+   "risk_block": 0.9948620953492617,
+   "soft_decline": 0.0012095463851220095,
+   "unknown": 0.0008667480093525695
+  }
+ }
+]

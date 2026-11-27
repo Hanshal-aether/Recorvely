@@ -51,6 +51,7 @@ async function processFailure(job: Job<FailureJobData>) {
   const policy = decidePolicy({
     category: classification.category,
     attemptNumber: tx.attemptNumber,
+    originalFailedAt: tx.originalFailedAt,
   });
 
   await prisma.policyDecision.create({

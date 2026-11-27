@@ -1,0 +1,801 @@
+template,decline_code,decline_message,label
+9,lost_card.,Card reported lost or stolen.,hard_decline
+9,pickup_card,Pick up card,hard_decline
+10,invalidaccount,Card number does not exist,hard_decline
+8,ACCOUNT_CLOSED,the customer's bank account has been closed,hard_decline
+7,card_expired,The card expiry date has passed,hard_decline
+4,daily_limit_exceeded,Card limit exceeded for today,soft_decline
+6,connection_failed,Temporary network failre,soft_decline
+9,stolen_card.,Stolen card do not retry,hard_decline
+17,upi_collect_expired,CUSTOMER ENTERED AN INCORRECT UPI PIN,auth_failure
+5,do_not_honor,Do not honor,soft_decline
+4,amount_limit_exceeded,WITHDRAWAL COUNT LIMIT EXCEEDED,soft_decline
+1,INSUFFICIENT_FUNDS,payment declined due to low balance.,soft_decline
+12,mandate_cancelled,standing instruction no longer valid.,hard_decline
+11,card_not_supported,Card not supported for this transaction,hard_decline
+12,mandate_cancelled,The recurring mandate was cancelled by the customer,hard_decline
+3,issuer_timeout,No response from issuing bank,soft_decline
+14,invalidotp,OTP VERIFICATION FAILED,auth_failure
+8,closed_account,the customer's bank account has been closed,hard_decline
+1,insufficient_funds,Insufficient funds in account,soft_decline
+9,CARD_REPORTED_LOST_OR_STOLEN,Card reported lost or stolen,hard_decline
+17,upi_collect_expired,UPI mandate was not approved by the customer.,auth_failure
+19,high_risk,The transaction was declined by the risk engine.,risk_block
+11,TANSACTION_NOT_ALLOWED,Card not supported for this transaction,hard_decline
+5,generic_decline,Trnsaction declined by the issuer,soft_decline
+1,insufficient_funds,Insufficient funds in account,soft_decline
+12,MANDATE_REVOKED,Standing instruction no longer valid,hard_decline
+16,incorrect_cvc,CVV verification failed,auth_failure
+8,account_closed,this account is no longer active.,hard_decline
+19,high_risk,Blocked by issuer risk controls,risk_block
+10,invalid_account,INVALID CARD NUBER,hard_decline
+1,insufficient_balance,Payment declined due to low balance,soft_decline
+15,authentication_failed,3ds authentication failed,auth_failure
+11,restricted_card.,Card not supported for this transaction.,hard_decline
+17,upi_mandate_not_approved,Customer entered an incorrect UPI PIN,auth_failure
+17,upi_mandate_not_approved,The UPI request expired before approval,auth_failure
+11,card_not_supported,Restricted card,hard_decline
+12,mandate_cancelled,The recurring mandate was cancelled by the customer,hard_decline
+4,daily_limit_exceeded,Card limit exceeded for today.,soft_decline
+2,processing_error,TEMPORARY PROCESSING ERROR AT THE BANK,soft_decline
+11,card_not_supported,TRANSACTION NOT PERMITTED TO CARDHOLDER,hard_decline
+20,stop_payment_order,Security violation detected,risk_block
+3,try_again_later,NO RESPONSE FROM ISSUING BANK,soft_decline
+5,generic_decine.,Do not honor,soft_decline
+15,authentication_failed,Cardholder authentication failed,auth_failure
+10,invalid_card,Invalid account number,hard_decline
+3,try_again_later,Gateway timeout while contacting the bank,soft_decline
+4,amount_limit_exceeded,DAILY TRANSACTION LIMIT EXCEEDED,soft_decline
+6,network_error,Temporary network failure,soft_decline
+15,authentication_failed,Authentication declined by issuer,auth_failure
+2,processing_error.,Bank system temprarily unavailable.,soft_decline
+1,insufficient_balance,Payment declined due to low balance,soft_decline
+4,amount_limit_exceeded,Daily transaction limit exceeded,soft_decline
+19,issuer_risk_block,The transaction was declined by the risk engine,risk_block
+3,issuer_timeout,Issuer did not respond in time,soft_decline
+3,gateway_timeout,the request timed out please try again,soft_decline
+1,INSUFFICIENT_FUNDS,Insufficient funds in account,soft_decline
+16,invalid_cvv,invalid cvv entered,auth_failure
+15,three_ds_failed,Cardholder authentication failed,auth_failure
+7,expired_card,YOUR CARD IS EXPIRED,hard_decline
+14,otp_not_entered,OTP verification failed,auth_failure
+12,mandate_cancelled,Standing instruction no longer valid,hard_decline
+5,donot_honor,DO NOT HONOR,soft_decline
+16,incorrect_cvc.,invalid cvv entered,auth_failure
+7,card_expired,your card is expired,hard_decline
+12,mandate_cancelled,customer has revoked the mandate,hard_decline
+20,blocked_by_merchant_rules,Security violation detected,risk_block
+5,CARD_DECLINED,Generic decline from bank,soft_decline
+6,network_error,Temporary network failure,soft_decline
+13,3ds_timeout,Customer authentication is required.,auth_failure
+10,invalid_account,The card number is incorrect,hard_decline
+10,invalid_card.,Card number does not exist,hard_decline
+13,AUTHENTICATION_TIMEOUT,customer authentication is required,auth_failure
+8,account_closed,This account is no longer active,hard_decline
+8,CLOSED_ACCOUNT,Account is closed,hard_decline
+6,connection_failed,Temporary network failure,soft_decline
+16,INCORRECT_CVC,Invalid CVV entered,auth_failure
+5,card_declined,Transaction declined by the issuer,soft_decline
+5,DO_NOT_HONOR,Transaction declned by the issuer,soft_decline
+8,closed_account,The customer's bank account has been closed,hard_decline
+19,risk_threshold_exceeded,Risk threshold exceeded for this payment.,risk_block
+20,blocked_by_merchant_rules.,Security violation detected,risk_block
+1,insufficient_funds,Not enough balance available,soft_decline
+3,issuer_timeout.,no response from issuing bank,soft_decline
+10,invalid_card,Card number does not exist,hard_decline
+8,account_closed,THE CUSTOMER'S BANK ACCOUNT HAS BEEN CLOSED,hard_decline
+19,risk_threshold_exceeded,Risk threshold exceeded for this payment,risk_block
+1,insufficient_balance,Insufficient funds in account,soft_decline
+15,three_ds_failed,3ds authentication failed,auth_failure
+1,insufficient_funds,Payment declined due to low balance,soft_decline
+6,network_error,temporary network failure.,soft_decline
+5,do_not_honor,Do not honor,soft_decline
+3,try_again_later,No response from issuing bank,soft_decline
+16,invalid_cvv,The card security code is incorrect,auth_failure
+19,ISSUER_RISK_BLOCK,The transaction was declined by the risk engine.,risk_block
+20,SECURTY_VIOLATION,Customer placed a stop payment order,risk_block
+15,3ds_failed,Autentication declined by issuer,auth_failure
+3,gateway_timeout,Issuer did not respond in time,soft_decline
+12,standing_instruction_cancelled,standing instruction no longer valid,hard_decline
+10,invalid_account,invalid account number,hard_decline
+13,AUTHENTICATION_TIMEOUT,3DS authentication timed out,auth_failure
+11,restricted_card,Card not supported for this transaction,hard_decline
+18,suspected_fraud,Fraud check failed,risk_block
+1,insufficient_funds,Insufficient funds in account,soft_decline
+12,mandate_cancelled,standing instruction no longer valid,hard_decline
+4,withdrawal_count_limit_exceeded,Daily transaction limit exceded,soft_decline
+13,3ds_timeout,Customer authentication is required,auth_failure
+11,card_not_supported,Restricted card,hard_decline
+15,3ds_failed,Authentication declined by isser,auth_failure
+17,upi_collect_expired,The UPI request expired before approval,auth_failure
+4,withdrawal_count_limit_exceeded,Withdrawal count limit exceeded.,soft_decline
+18,FRAUD_SUSPECTED,Issuer flagged transaction as suspected fraud,risk_block
+15,three_ds_failed,Cardholder authntication failed,auth_failure
+17,upi_mandate_not_approved,The UPI request expired before approval,auth_failure
+11,restricted_card,Card not supported for this transaction,hard_decline
+12,mandate_cancelled,Customer has revoked the mandate.,hard_decline
+20,stop_payment_order,Blocked by fraud rules,risk_block
+11,card_not_supported.,This card type is not allowed for recurring payments,hard_decline
+4,amount_limit_exceeded,Transaction amount exceeds the permitted limit.,soft_decline
+3,gateway_timeout,NO RESPONSE FROM ISSUING BANK,soft_decline
+20,security_violation,Blocked by fraud rules,risk_block
+10,incorrect_number,The card number is incorrect,hard_decline
+8,closed_account,The customer's bank account has been closed.,hard_decline
+18,fraud_suspected,fraud check failed,risk_block
+1,insufficient_balance,Your account has insufficient funds to cover this payment,soft_decline
+15,authentication_failed,Authentication declined by isuer,auth_failure
+2,processing_error,Temporary processing error at the bank,soft_decline
+15,3ds_failed,3DS authentication failed,auth_failure
+19,high_risk,blocked by issuer risk controls,risk_block
+17,UPI_MANDATE_NOT_APPROVED,UPI mandate was not approved by the customer,auth_failure
+10,invalid_card,Card number does not exist,hard_decline
+5,card_declined,Generic decline from bank,soft_decline
+7,EXPIED_CARD,"Expired card, ask customer to update",hard_decline
+12,mandate_revoked,The recurring mandate was cancelled by the customer,hard_decline
+6,connection_failed,Temporary network failure,soft_decline
+17,upi_pin_incorect,The UPI request expired before approval,auth_failure
+10,INVALID_CARD,Invalid card number,hard_decline
+12,standing_instruction_cancelled,Standing instruction no longer valid,hard_decline
+4,daily_limit_exceeded,Daily transaction limit exceeded,soft_decline
+6,connection_failed,Network error while processing payment,soft_decline
+13,authentication_required,customer authentication is required,auth_failure
+9,card_reported_lost_or_stolen,Pick up card,hard_decline
+12,mandate_revoked,The recurring mandate was cancelled by the customer.,hard_decline
+13,3ds_timeout,Authentication was not completed in time,auth_failure
+6,NETWORK_ERROR,Temporary network failure,soft_decline
+9,pickup_card.,Card reported lost or stolen,hard_decline
+16,INCORREC_CVC,Invalid CVV entered,auth_failure
+16,INCORRECT_CVC.,CVV verification failed,auth_failure
+1,insufficient_funds,payment declined due to low balance,soft_decline
+16,invalid_cvv,the card security code is incorrect,auth_failure
+14,otp_expired,OTP verification failed,auth_failure
+9,lost_card,"Stolen card, do not retry",hard_decline
+1,INSUFFICIENT_FUNDS.,Insufficient fnds in account,soft_decline
+7,expired_card,your card is expired,hard_decline
+19,high_risk,Blocked by issuer risk controls,risk_block
+2,issuer_unavailable,The bank could not process the request right now,soft_decline
+10,invalid_card,invalid account number,hard_decline
+2,issuer_unavailable,The bank could not process the request right now,soft_decline
+14,invalid_otp,The one time password has expired,auth_failure
+5,card_declined,Do not honor,soft_decline
+20,blocked_by_merchant_rules,Customer placed a stop payment order,risk_block
+14,incorrect_otp,The one time password has expired,auth_failure
+1,INSUFFICIENT_BALANCE.,insufficient funds in account,soft_decline
+18,fraudlent,Payment blocked as potentially fraudulent.,risk_block
+9,pckup_card,Card reported lost or stolen,hard_decline
+7,card_expired,"Expired card, ask customer to update",hard_decline
+5,generic_decline,Generic decline from bank,soft_decline
+19,high_risk,The transaction was declined by the risk engine,risk_block
+11,TRANSACTIN_NOT_ALLOWED,Transaction not permitted to cardholder,hard_decline
+10,invalid_card,Invalid card number,hard_decline
+12,mandate_cancelled,Customer has revoked the mandate,hard_decline
+19,risk_threshold_exceeded,Blocke by issuer risk controls,risk_block
+15,authentication_failed,3DS authentication failed,auth_failure
+11,restrcted_card,TRANSACTION NOT PERMITTED TO CARDHOLDER,hard_decline
+11,restricted_card,This card type is not allowed for recurring payments,hard_decline
+20,blocked_by_merchant_rules.,security violation detected,risk_block
+1,INSUFFICIENT_FUNDS,Your account has insufficient funds to cover this payment,soft_decline
+18,fraud_suspected,Fraud check failed,risk_block
+12,mandate_revoked,Customer hs revoked the mandate,hard_decline
+11,RESTRICTED_CARD,Restricted card.,hard_decline
+20,security_violation,Customer placed a stop payment order,risk_block
+10,invalid_account,invalid account number,hard_decline
+11,restricted_card,Restricted card.,hard_decline
+16,incorrect_cvc.,The card security code is incorrct,auth_failure
+6,connection_failed,Connection to payment network failed,soft_decline
+2,processing_error,Temporary processing error at the bank,soft_decline
+18,fraud_suspected,Payment blocked as potentially fraudulent,risk_block
+15,3ds_failed,cardholder authentication failed,auth_failure
+6,nework_error,Network error while processing payment,soft_decline
+8,account_closed,Account is closed,hard_decline
+18,fraud_suspected,Fraud check failed,risk_block
+17,UPI_MANDATE_NOT_APPROVED,Customer entered an incorrect UPI PIN,auth_failure
+17,upi_mandate_not_approved,The UPI request expired before approval,auth_failure
+4,amount_limit_exceeded,Withdrawal count limit exceeded,soft_decline
+9,lost_card,"Stolen card, do not retry",hard_decline
+17,upi_pin_incorrect.,The UPI request expired before approval,auth_failure
+16,cvv_mismatch,The card security code is incorrect,auth_failure
+8,closed_account,The custoer's bank account has been closed,hard_decline
+4,daily_limit_exceeded,Withdrawal count limit exceeded,soft_decline
+15,3ds_failed,Cardholer authentication failed,auth_failure
+2,bank_temporarily_unavailable,The bank could not process the request right now,soft_decline
+20,security_violation,blocked by fraud rules,risk_block
+8,ACCOUNT_CLOSED,The customer's bank account has been closed,hard_decline
+6,NETWORK_ERROR,Connection to payment network failed,soft_decline
+16,invalid_cvv,CVV verification failed,auth_failure
+2,bank_temporarily_unavailable,TMPORARY PROCESSING ERROR AT THE BANK,soft_decline
+20,blocked_by_merchant_rules,Security violation detected,risk_block
+20,stop_payment_order,BLOCKED BY FRAUD RULES,risk_block
+4,withdrawal_count_limit_exceeded,Card limit exceeded for today,soft_decline
+14,otp_notentered,OTP verification failed,auth_failure
+9,card_reported_lost_or_stolen,Card reported lost or stolen,hard_decline
+11,restricted_card,Transaction not permitted to cardholder,hard_decline
+10,incorrect_number,Invalid card number,hard_decline
+20,BLOCKED_BY_MERCHANT_RULES,Customer placed a stop payment order,risk_block
+19,risk_threshold_exceeded,Blocked by issuer risk controls,risk_block
+7,EXPIRED_CARD,The card expiry date has passed,hard_decline
+13,3DS_TIMEOUT,Customer authentication is required,auth_failure
+4,withdrawal_count_limit_exceeded,Daily transaction limit exceeded,soft_decline
+12,mandate_cancelled,THE RECURRING MANDATE WAS CANCELLED BY THE CUSTOMER,hard_decline
+4,daily_limit_exceeded,Withdrawal count limit exceeded,soft_decline
+1,insufficient_balance.,Payment declined due to low balance,soft_decline
+14,incorrect_tp,otp verification failed,auth_failure
+12,mandate_cancelled,The recurring mandate was cancelled by the customer,hard_decline
+17,upi_pin_incorect,Customer entered an incorrect UPI PIN,auth_failure
+8,closed_acount,The customer's bank account has been closed,hard_decline
+4,AMOUNT_LIMIT_EXCEEDED,Transaction amount exceeds the permitted limit,soft_decline
+4,daily_limit_exceeded,Withdrawal count limit exceeded,soft_decline
+18,fraudulent,Fraud check faled,risk_block
+16,incorrect_cvc,cvv verificatin failed.,auth_failure
+3,gateway_timeout,Gatway timeout while contacting the bank,soft_decline
+20,security_violation,Blocked by fraud rules,risk_block
+17,upi_pin_incorrect,customer entered an incorrect upi pin,auth_failure
+7,EXPIRD_CARD,CARD HAS EXPIRED,hard_decline
+1,insufficient_funds,Insufficient funds n account,soft_decline
+2,bank_temporarily_unavailable,The bank could not process the request right now,soft_decline
+9,lost_card,The card has been reported lost,hard_decline
+19,risk_threshold_exceeded,Risk threshold exceeded for this payment,risk_block
+2,bank_temporarily_unavailable,"Issuer is currently unavailable, try again later.",soft_decline
+18,frau_suspected,ISSUER FLAGGED TRANSACTION AS SUSPECTED FRAUD,risk_block
+5,generic_decline,Transaction declined by the issuer,soft_decline
+9,card_reprted_lost_or_stolen.,"Stolen card, do not retry",hard_decline
+12,mandate_cancelled,The recurring mandate was cancelled by the customer,hard_decline
+10,invalid_crd,invalid account number,hard_decline
+2,bank_temporarily_unavailable.,Temporary processing error at the bank,soft_decline
+1,INSUFFICIENT_FUNDS.,Payment declined due to low balance,soft_decline
+6,network_error,Temporary network failure,soft_decline
+1,INSUFFICIENT_FUNDS.,Not enough balance available,soft_decline
+4,daily_limit_exceeded,Daily transaction limit exceedd.,soft_decline
+12,standing_instruction_cancelled,Customer has revoked the mandate,hard_decline
+16,invalid_vv,CVV verification failed,auth_failure
+9,card_reported_lost_or_stolen,THE CARD HAS BEEN REPORTED LOST,hard_decline
+20,blocked_by_merchant_rules,Blocked by fraud rules,risk_block
+20,stop_payment_order,Security violation detected,risk_block
+6,connection_failed,Connection to payment network failed.,soft_decline
+5,generic_decline.,The card was declined no reason given,soft_decline
+3,issur_timeout,Issuer did not respond in time,soft_decline
+20,security_violation,Blocked by fraud rules,risk_block
+3,issuer_timeout,No response from issuing bank,soft_decline
+7,expired_card,"Expired card, ask customer to update",hard_decline
+3,issuer_timeout,Issuer did not respond in time,soft_decline
+7,EXPRED_CARD,The card expiry date has passed,hard_decline
+14,incorrect_otp.,OTP not entered in time,auth_failure
+13,authentication_timeout,authentication was not completed in time.,auth_failure
+16,invalid_cvv,CVV VERIFICATION FAILED,auth_failure
+18,fraudulent,ISSUER FLAGGED TRANSACTION AS SUSPECTED FRAUD,risk_block
+1,insufficient_funds,payment declined due to low balance,soft_decline
+4,amount_limit_exceeded,Withdrawal count limit exceeded,soft_decline
+1,INSUFFICIENT_FUNDS,INSUFFICIENT FUNDS IN ACCOUNT,soft_decline
+13,authentication_timeout,3DS authentication timed out,auth_failure
+9,card_reported_lost_or_stolen,Card reported lost or stolen,hard_decline
+17,upi_mandate_not_approved,upi mandate was not approved by the customer,auth_failure
+13,AUTHENTICATION_REQUIRED,Authentication was not completed in time,auth_failure
+15,3ds_failed,CARDHOLDER AUTHENTICATION FAILED,auth_failure
+17,upi_mandate_not_approved,UPI mandate was not approved by the customer,auth_failure
+8,closed_account,Account is closed,hard_decline
+18,suspected_fraud,fraud check failed,risk_block
+2,issuerunavailable,Temporary processing error at the bank,soft_decline
+9,lost_card,Card reported lost or stolen,hard_decline
+11,transaction_not_allowed,Restricted card.,hard_decline
+15,three_dsfailed,Authentication declined by issuer,auth_failure
+7,EXPIRED_CARD,Card has expired,hard_decline
+3,gateway_timeout,The request timed out please try again,soft_decline
+4,daily_limit_exceeded,Daily transaction limit exceeded,soft_decline
+20,security_violation,Customer placed a stop payment order,risk_block
+8,closed_account,this account is no longer active,hard_decline
+18,suspected_fraud,Payment blocked as potentially fraudulent,risk_block
+1,INSUFFICIENT_FUNDS,PAYMENT DECLINED DUE TO LOW BALANCE,soft_decline
+16,invalid_cvv,CVV verification failed.,auth_failure
+9,lost_card,"Stolen card, do not retry",hard_decline
+16,cvv_mismatch,CVV verification failed,auth_failure
+16,cvv_mismatch,Invalid CVV entered,auth_failure
+8,account_closed.,The customer's bank account has been closed,hard_decline
+6,networkerror,Temporary network failure.,soft_decline
+3,issuer_imeout,No response from issuing bank,soft_decline
+4,amount_limit_exceeded,Card limitexceeded for today,soft_decline
+3,gateway_timeout,"The request timed out, please try again",soft_decline
+5,CAR_DECLINED,Do not honor,soft_decline
+7,expired_card,Expired card ask customer to update,hard_decline
+4,amount_limit_exceeded,Card limit exceeded for today,soft_decline
+13,3ds_timeout,AUTHENTICATION WAS NOT COMPLETED IN TIME,auth_failure
+2,processing_error,BANK SYSTEM TEMPORARILY UNAVAILABLE,soft_decline
+20,stop_payment_order,Security violation detected.,risk_block
+17,upi_colect_expired,The UPI request expired before approval,auth_failure
+20,security_violation,security violation detected,risk_block
+19,high_risk,Risk threshold exceeded for this payment,risk_block
+9,lost_card,The card has been reported lost,hard_decline
+9,lost_card,Pick up card,hard_decline
+19,ISSUER_RISK_BLOCK,Risk threshold exceeded for this payment,risk_block
+14,ot_not_entered,Th one time password has expired,auth_failure
+20,security_violation,Customer placed a stop payment order.,risk_block
+8,closed_account.,The customer's bank account has been closed,hard_decline
+7,EXPIRED_CARD,Your card is expired,hard_decline
+15,three_ds_failed,3DS authentication failed,auth_failure
+5,carddeclined,The card was declined no reason given.,soft_decline
+17,upi_pin_inorrect,THE UPI REQUEST EXPIRED BEFORE APPROVAL,auth_failure
+9,lost_card.,Pic up card,hard_decline
+11,restricted_card,This card type is not allowed for recurring payments.,hard_decline
+9,card_reported_lost_or_stolen,The card has been reported lost,hard_decline
+11,transaction_not_allowed,Transaction not permitted to cardholder,hard_decline
+13,authentication_required,Authentication was not completed in time,auth_failure
+9,lost_card,"Stolen card, do not retry",hard_decline
+15,3ds_failed,3DS authentication failed,auth_failure
+17,upi_pin_incorrect,UPI mandate was not approved by the customer,auth_failure
+14,invalid_otp,OTP not entered in time,auth_failure
+15,AUTHENTICATION_FAILED,Authentication declined by issuer,auth_failure
+16,cvv_mismatch,Invalid CVV entered,auth_failure
+7,EXPIRED_CARD,The card expiry date has passed.,hard_decline
+4,daily_limit_exceeded,DALY TRANSACTION LIMIT EXCEEDED,soft_decline
+18,fraudulent,Fraud check failed,risk_block
+16,invalidcvv,The card security code is incorrect,auth_failure
+10,incorrect_number,Card number does not exist,hard_decline
+13,authenticatio_timeout,3DS authentication timed out,auth_failure
+10,invalid_card,Card number does not exist,hard_decline
+5,card_declined,"The card was declined, no reason given",soft_decline
+3,issuer_timeout,Gateway timeout while contacting the bank,soft_decline
+18,fraudulent,FRAUD CHECK FAILED,risk_block
+7,EXPRED_CARD.,"EXPIRED CARD, ASK CUTOMER TO UPDATE",hard_decline
+11,restricted_card,This card type is not allowed for recurring payments,hard_decline
+7,card_expired,THE CARD EXPIRY DATE HAS PASSED,hard_decline
+3,try_again_later.,No response from issing bank.,soft_decline
+17,upi_collect_expied,customer entered an incorrect upi pin,auth_failure
+16,invalid_cvv,The card security code is incorrect,auth_failure
+18,fraudulent,Payment blocked as potentially fraudulent,risk_block
+11,TRANSACTION_NOT_ALLOWED,This card type is not allowed for recurring payments,hard_decline
+17,upi_mandate_not_approved,The UPI request expired before approval,auth_failure
+7,expired_card.,card has expired,hard_decline
+9,card_reported_lost_or_stolen,"Stolen card, do not retry.",hard_decline
+13,3ds_timeout.,3DS authentication timed out,auth_failure
+10,invalid_account,Card number does not exist,hard_decline
+5,do_not_honor,"The card was declined, no reason given",soft_decline
+5,do_not_honor,Generic decline from bank,soft_decline
+20,stop_payment_order,Customer placed a stop payment order,risk_block
+7,card_expired,Your card i expired,hard_decline
+17,upi_mandate_not_approved,UPI mandate was not approved by the customer,auth_failure
+14,incorrect_otp,The one time password has expired,auth_failure
+6,network_error,Network error while processing payment,soft_decline
+14,invalid_otp,THE ONE TIME PASSWORD HAS EXPIRED,auth_failure
+12,standing_instruction_cancelled.,Standing instruction no longer valid,hard_decline
+11,crd_not_supported,restricted card,hard_decline
+3,TRYAGAIN_LATER,no response from issuing bank,soft_decline
+20,stop_payment_order,Security violation detected,risk_block
+13,3ds_timeout,CUSTOMER ATHENTICATION IS REQUIRED,auth_failure
+6,connection_filed,Network error while processing payment,soft_decline
+6,connection_failed,Connection to payment network failed,soft_decline
+10,INVALID_CARD,Card number does not exist,hard_decline
+2,issuer_unavailable,The bank could not process the request right now.,soft_decline
+7,EXPIRED_CARD,Your card is expired,hard_decline
+5,do_not_honor,"the card was declined, no reason given",soft_decline
+14,invalid_otp,OTPnot entered in time,auth_failure
+1,insufficient_funds,insufficient funds in account,soft_decline
+8,closed_account,The customer's bank account has been closed,hard_decline
+17,upi_pin_incorrect.,UPI mandate was not approved by the customer,auth_failure
+18,fraudulent,Fraud check failed,risk_block
+5,generic_decline,"The card was declined, no reason given",soft_decline
+12,MANDATE_REVOKED,Standing instruction no longer valid,hard_decline
+2,processing_error,Bank system temporarily unavailable,soft_decline
+3,ISSUER_TIMEOUT,"the request timed out, please try again",soft_decline
+18,suspected_fraud,Payment blocked as potentially fraudulent,risk_block
+1,insufficient_funds,Payment declined due to low balance.,soft_decline
+2,bank_temporarily_unavailable,"issuer is currently unavailable, try again later",soft_decline
+2,issuer_unavailable,"issuer is currently unavailable, try again later",soft_decline
+11,tranaction_not_allowed.,Restricted card,hard_decline
+13,AUTHENTICATION_TIMEOUT,authentication was not completed in time,auth_failure
+8,CLOSED_ACCOUNT,this account is no longer active,hard_decline
+11,card_not_supported,Card not supported for this transaction,hard_decline
+16,invalid_cvv,THE CARD SECURITY CODE IS INCORRECT,auth_failure
+17,upi_pin_incorrect,Customer entered an incorrect UPI PIN,auth_failure
+1,insufficient_balance,Insufficient funds in account,soft_decline
+14,otp_expired,OTP VERIFICATION FAILED,auth_failure
+10,invalid_card,Invalid card number,hard_decline
+12,standing_instruction_cancelled,Standing instruction no longer valid,hard_decline
+17,upi_collect_expired,UPI MANDATE WAS NOT APPROVED BY THE CUSTOMER,auth_failure
+6,NETWORK_ERROR,TEMPORARY NETWORK FAILURE,soft_decline
+14,incorrect_otp,The one time password has expired,auth_failure
+6,CONNECTION_FAILED,Connection to payment network failed.,soft_decline
+6,connection_failed,temporary network failure,soft_decline
+16,incorrect_cvc,invalid cvv entered,auth_failure
+15,auhentication_failed,Authentication declined by issuer,auth_failure
+19,issuer_risk_block,Blocked by issuer risk controls.,risk_block
+19,risk_threshold_exceeded,Blocked by issuer risk controls,risk_block
+1,insufficientfunds,Not enough balance available,soft_decline
+7,expired_card,The card expiry date has passed,hard_decline
+5,do_not_honor,Transaction declined by the issuer,soft_decline
+15,authentication_failed,3DS authentication failed,auth_failure
+18,fraud_suspected,Fraud check ailed,risk_block
+1,INSUFFICIENT_FUNDS,not enough balance available,soft_decline
+7,expired_card,The card expiy date has passed,hard_decline
+18,fraud_suspected,FRAUD CHECK FAILED,risk_block
+4,daily_limit_exceeded,card limit exceeded for today,soft_decline
+19,RISK_THRESHOLD_EXCEEDED,The transaction was declined by the risk engine.,risk_block
+8,account_closed.,This account is no longer active,hard_decline
+13,3ds_timeout,Authentication was not completed in time,auth_failure
+11,restricted_card,Card not supported for this transaction,hard_decline
+7,expired_card,expired card ask customer to update,hard_decline
+18,fraudulent,FRAUD CHECK FAILED.,risk_block
+6,CONNECTION_FAILED,TEMPORARY NETWORK FAILURE,soft_decline
+13,3ds_timeout,Authentication was not completed in time,auth_failure
+15,authentication_failed,cardholder authentication failed,auth_failure
+15,authentication_failed,3DS authentication failed,auth_failure
+4,amount_limit_exceeded,WITHDRAWAL COUNT LIMIT EXCEEDED,soft_decline
+8,account_closed,ACCOUNT IS CLOSED,hard_decline
+19,risk_threshold_exceeded.,Risk threshold exceeded for this payment,risk_block
+10,incorrect_number,Invalid card number,hard_decline
+12,mandate_cancelled.,Standing instruction no loner valid,hard_decline
+8,account_closed,The customer's bank account has been closed,hard_decline
+7,EXPIRED_CARD,Your card is expired,hard_decline
+9,stolen_card,Stolen card do not retry,hard_decline
+12,standing_instruction_cancelled,STANDING INSTRUCTION NO LONGER VALID,hard_decline
+3,issuer_timeout,issuer did not respond in time,soft_decline
+6,connection_failed,Network error while processing payment,soft_decline
+16,incorrect_cvc.,The card security codeis incorrect,auth_failure
+12,mandate_revoked,Customer has revoked the mandate,hard_decline
+3,gateway_timeout,"the request timed out, please try again",soft_decline
+13,3ds_timeout,AUTHENTICATION WAS NOT COMPLETED IN IME.,auth_failure
+17,upi_pin_incorrect,customer entered an incorrect upi pin,auth_failure
+8,closed_account.,This account is no longer active,hard_decline
+1,insufficient_funds,Not enough balance available,soft_decline
+11,RESTRICTED_CARD,Transaction not permitted to cardholder,hard_decline
+14,incorrect_otp,The one time password has expired,auth_failure
+16,INCORRECT_CVC,CVV verification failed.,auth_failure
+3,try_again_later,"the request timed out, please try again",soft_decline
+14,otp_not_entered,OTP verification failed.,auth_failure
+20,stop_payment_order,security violation detected,risk_block
+11,RESTRICTED_CARD,This card type is not allowed for recurring payments,hard_decline
+3,issuer_timeout,Issuer did not respond in time,soft_decline
+17,upi_collect_expired,The UPI request expired before approval,auth_failure
+15,thre_ds_failed,Cardholder authentication failed,auth_failure
+16,CVV_MISMATCH,CVV verification failed,auth_failure
+19,high_risk,Risk threshold exceeded for this payment,risk_block
+11,restricted_card,This card type is not allowed for recurring payments,hard_decline
+6,connection_failed,Temporary network failure,soft_decline
+1,insufficient_balance,Not enough balance available,soft_decline
+20,SECURITY_VIOLATION,secuity violation detected,risk_block
+7,card_expired,Your card is expired,hard_decline
+6,network_error.,temporary network failure,soft_decline
+9,card_reportd_lost_or_stolen,"Stolen card, do not retry",hard_decline
+14,op_not_entered,customer entered an incorrect otp,auth_failure
+20,stop_payment_order,Customer placed a stop payment order,risk_block
+8,closed_account,The customer's bank account has been closed,hard_decline
+16,invalid_cvv,CVV verification failed,auth_failure
+3,issuer_timeout,Gateway timeout while contacting the bank,soft_decline
+18,suspected_fraud,Issuer flagged transaction as suspected fraud,risk_block
+11,transaction_not_allowed,RESTRICTED CARD,hard_decline
+20,stop_payment_order,CUSTOMER PLACED A STOP PAYMENT ORDER,risk_block
+18,fraud_suspected,fraud check failed,risk_block
+18,suspected_fraud.,Frau check failed,risk_block
+13,3ds_timeout,3DS authentication timed out,auth_failure
+20,BLOCKED_BY_MERCHANT_RULES,Security violation detected,risk_block
+3,GATEWAY_TIMEOUT,"The request timed out, please try again",soft_decline
+14,INCORRECT_OTP,OTP verification failed,auth_failure
+10,invalid_card.,CARD NUMBER DOES NOT EXIST,hard_decline
+2,processing_error,the bank could not process the request right now.,soft_decline
+1,INSUFFICIENT_FUNDS,Not enough balance available,soft_decline
+7,card_expired,Your card is expired,hard_decline
+3,gateway_timeout,No response from issuing bank.,soft_decline
+9,stolen_card,Card reported lost or stolen,hard_decline
+13,3ds_timeut,Authentication was not completed in time,auth_failure
+1,INSUFFICIENT_FUNDS,Not enough balance available,soft_decline
+8,closed_account,this account is no longer active,hard_decline
+12,MANDATE_REVOKED.,Standing instruction no longer valid,hard_decline
+5,do_not_honor.,Generic decline from bank,soft_decline
+10,invalid_card_number,Invalid card number,hard_decline
+11,card_not_supported,Restricted card,hard_decline
+9,CARD_REPORTED_LOST_OR_STOLEN,The card has been reported lost,hard_decline
+18,fraud_suspected,Payment blocked as potentially fraudulent,risk_block
+10,invalid_card_number,INVALID CARD NUMBER,hard_decline
+3,issuer_timeout,no response from issuing bank,soft_decline
+19,risk_threshold_exceeded,Risk threshold exceeded for this payment,risk_block
+4,daily_lmit_exceeded,Transaction amount exceeds the permitted limit,soft_decline
+13,AUTHENTICATION_REQUIRED,3DS AUTHENTICATION TIMED OUT,auth_failure
+5,do_not_honor,Transaction declined by the issuer.,soft_decline
+12,MANDATE_REVOKED,STANDING INSTRUCTION NO LONGER VALID,hard_decline
+8,CLOSED_ACCOUNT,The customer's bank account has been closed,hard_decline
+10,incorrect_number,Invalid card number,hard_decline
+12,mandate_revoked,The recurring mandate was cancelled by the customer,hard_decline
+5,card_declined,DO NOT HONOR,soft_decline
+1,insufficient_balance,Your account has insufficient funds to cover this payment,soft_decline
+19,issuer_risk_block,BLOCKED BY ISSUER RISK CONTROLS,risk_block
+19,issuer_risk_block,Risk threshold exceeded for this payment,risk_block
+9,pickup_card,Card reported lost or stolen,hard_decline
+17,upi_collect_expired,UPI mandate was not approved by the customer,auth_failure
+1,INSUFFICIENT_FUNDS,Not enough balance available,soft_decline
+8,account_closed,this account is no longer active,hard_decline
+10,invalid_account.,Invalid account number.,hard_decline
+6,network_error,network error while processing payment,soft_decline
+13,authentication_timeout,Authentication was not completed in time.,auth_failure
+13,authentication_timeout,AUTHENTICATION WAS NOT COMPLETED IN TIME,auth_failure
+5,genericdecline,"The card was declined, no reason given",soft_decline
+7,crd_expired,Your card is expired,hard_decline
+7,expired_card,Your card is expired,hard_decline
+2,issuer_unavailable,Temporary processing error at the bank,soft_decline
+5,card_declined,Generic decline from bank,soft_decline
+13,AUTHENTICATION_TIMEOUT,Customer authentication is required,auth_failure
+3,try_again_later,Issuer did not respond in time,soft_decline
+1,insufficient_funds,Your account has insufficient funds to cover this payment,soft_decline
+20,SECURITY_VIOLATION,Security violation detected,risk_block
+6,connection_failed,Network error while processing payment,soft_decline
+6,network_error,network error while processing payment,soft_decline
+2,issuer_unavailable.,Bank system temporarily unavailable,soft_decline
+16,INCORRECT_CVC,CVV VERIFICATION FAILED,auth_failure
+8,ACCOUNT_CLOSED,This account is no longer active,hard_decline
+5,generic_decline,Transaction declined by the issuer,soft_decline
+10,invalid_card,The card number is incorrect,hard_decline
+6,connection_failed,Temporary network failure,soft_decline
+13,AUTHENTICATION_REQUIRED,Authentication was not completed in time,auth_failure
+14,otp_not_entered,The one time password has expired,auth_failure
+3,try_again_later,gateway timeout while contacting the bank,soft_decline
+2,banktemporarily_unavailable,Bank system temporarily unavailable,soft_decline
+18,FRAUDULENT.,Issuer flagged transaction as suspected fraud,risk_block
+4,daily_limit_exceeded,Daily transaction limit exceeded,soft_decline
+14,otp_expired,The one time password has expired,auth_failure
+18,fraud_suspected,ISSUER FLAGGED TRANSACTION AS SUSPECTED FRAUD.,risk_block
+2,bank_temporarily_unavalable,The bank could not process the request right now,soft_decline
+17,upi_mandate_not_approved,The UPI request expired before approval,auth_failure
+20,security_violation.,blocked by fraud rules.,risk_block
+15,authentication_ailed,3DS authentication failed,auth_failure
+16,incorrect_cvc,Invalid CVV entered,auth_failure
+4,DAILY_LIMIT_EXCEEDED,transaction amount exceeds the permitted imit,soft_decline
+19,issuer_risk_block,Blocked by issuer risk controls,risk_block
+8,closed_account,The customer's bank account has been closed,hard_decline
+15,three_ds_failed,Cardholder authenticationfailed,auth_failure
+19,issuer_risk_block,The transaction was declined by the risk engine,risk_block
+19,RISK_THRESHOLD_EXCEEDED,blocked by issuer risk controls,risk_block
+4,withdrawal_count_limit_exceeded,Card limit exceeded for today,soft_decline
+12,standing_instruction_cancelled,Standing instruction no longer valid.,hard_decline
+9,pickup_card.,The card has been reported lost,hard_decline
+7,expired_ard,Card has expired,hard_decline
+8,account_closed,The customer's bank account has been closed,hard_decline
+14,incorrect_otp,OTP not entered in time,auth_failure
+5,CARD_DECLINED,Generic decline from bank,soft_decline
+4,AMOUNT_LIMIT_EXCEEDED,Daily transaction limit exceeded,soft_decline
+1,insufficient_funds,Insufficient funds in account,soft_decline
+16,incorrect_cvc.,CVV verification failed,auth_failure
+5,do_not_honor,Generic decline from bank,soft_decline
+12,mandate_cancelled,Customer has revoked the mandate.,hard_decline
+10,incorrect_number,invalid card number.,hard_decline
+7,expired_card,Your card is expired,hard_decline
+14,incorret_otp.,OTP VERIFICATION FAILED,auth_failure
+2,isuer_unavailable,The bank could not process the request right now,soft_decline
+4,amount_limit_exceeded.,Withdrawal count limit exceeded,soft_decline
+6,connection_failed,Connection to payment network failed,soft_decline
+1,insufficient_balance,Your account has insufficient funds to cover this payment.,soft_decline
+7,expired_card,Your card is expired,hard_decline
+16,invalid_cvv,CVV verification failed,auth_failure
+10,INVALID_ACCOUNT,Card number does not exist,hard_decline
+8,closed_account,this account is no longer active,hard_decline
+18,suspected_fraud,PAYMENT BLOCKED AS POTENTIALLY FRAUDULENT.,risk_block
+2,bank_temporarily_unavailable,The bank could not process the request right now,soft_decline
+11,restricted_card,Card ot supported for this transaction,hard_decline
+3,gateway_timeout.,GATEWAY TIMEOUT WHILE CONTACTING THE BANK,soft_decline
+2,bank_temporarily_unavailable,"Issuer is currently unavailable, try again later",soft_decline
+3,try_again_later,Issuer did not respond in time,soft_decline
+10,invalid_card,The card number is incorrect,hard_decline
+13,3DS_TIMEOUT,3DS authentication timed out,auth_failure
+16,invald_cvv,INVALID CVV ENTERED,auth_failure
+3,gateway_timeut,Gateway timeout while contacting the bank,soft_decline
+12,mandate_revoked,Standing instruction no longer valid,hard_decline
+14,incorrect_otp,Customer entered an incorrect OTP,auth_failure
+11,restricted_card,Transaction not permitted to cardholder,hard_decline
+13,3ds_timeout,Customer authentication is required,auth_failure
+20,blocked_by_merchant_rules,Security violation detected,risk_block
+3,gateway_timeout,Issuer did not respond in time,soft_decline
+7,EXPIRED_CARD,expired card ask customer to update.,hard_decline
+4,withdrawal_count_limit_exceeded,Card limit exceeded for today,soft_decline
+16,cvv_mismatch,CVV verification failed,auth_failure
+15,three_ds_failed,Cardholder authentication failed,auth_failure
+7,expired_card,Card has expired,hard_decline
+15,authentication_failed,3DS authentication failed,auth_failure
+6,connection_failed,Connection to payment network failed,soft_decline
+19,high_risk,The transaction was declined by the risk engine,risk_block
+5,do_not_honor,generic decline from bank,soft_decline
+5,card_declined,Generic decline from bank,soft_decline
+9,pickup_card,The card has been reported lost,hard_decline
+4,amount_limit_exceeded,Withdrawal count limit exceeded,soft_decline
+13,authentication_timeout.,3DS authentication timed out,auth_failure
+3,try_again_later,THE REQUEST IMED OUT PLEASE TRY AGAIN.,soft_decline
+8,closed_account,This account is no longer active,hard_decline
+17,upi_collect_expired,UPI mandate was not approved by the customer,auth_failure
+16,invalid_cvv,CVV verification failed,auth_failure
+11,card_not_supported,Restricted card,hard_decline
+18,suspected_fraud,Payment blocked as potentially fraudulent,risk_block
+18,fraud_suspected,Payment blocked as potentially fraudulent,risk_block
+15,3DS_FAILED,CARDHOLDER AUTHENTICATION FAILED,auth_failure
+12,mandate_revoked,The recurring mandate was cancelled by the customer,hard_decline
+6,NETWORK_ERROR,Connection to payment network failed.,soft_decline
+8,closed_account,Account is closed.,hard_decline
+9,stolen_card,Card reported los or stolen,hard_decline
+11,restrictd_card,this card type is not allowed for recurring paments,hard_decline
+13,authentication_timeout,Customer authentication is required.,auth_failure
+16,cvv_mismatch,CVV verification failed,auth_failure
+4,daily_limit_exceeded.,Daily transaction limit exceeded.,soft_decline
+14,incorect_otp,the one time password has expired,auth_failure
+14,INVALID_OTP,OTP verification failed,auth_failure
+9,stole_card,The card has been reported lost,hard_decline
+6,conection_failed,TEMPORARY NETWORK FAILURE,soft_decline
+12,mandate_cancelled,Customer as revoked the mandate.,hard_decline
+8,closed_account,This account is no longer active.,hard_decline
+5,geeric_decline,Generic decline from bank,soft_decline
+19,issuer_risk_block,Risk threshold exceeded for this payment,risk_block
+16,INVALID_CVV,Invalid CVV entered,auth_failure
+2,bank_temporarily_unavailable,The bank could not process the request right now,soft_decline
+9,card_reported_lost_or_stolen,the card has been reported lost.,hard_decline
+5,generic_decline.,"The card was declined, no reason given",soft_decline
+9,lost_ard,"Stolen card, do not retry",hard_decline
+15,3ds_failed.,authentication declined by issuer,auth_failure
+4,DAILY_LIMIT_EXCEEDED,DAILY TRANSACTION LIMIT EXCEEDED,soft_decline
+5,generic_ecline,"The card was declined, no reason given",soft_decline
+14,invalid_otp.,the one time password has expired,auth_failure
+19,risk_threshold_exceeded,Risk threshold exceeded for this payment,risk_block
+8,account_closed,The customer's bank account has been closed,hard_decline
+14,otp_not_entered,Customer entered an incorrect OTP,auth_failure
+11,restricted_card,Card not supported for this transaction,hard_decline
+18,fraud_suspected,Issur flagged transaction as suspected fraud,risk_block
+11,card_not_supported,Transaction not permitted to cardholder,hard_decline
+20,stop_payment_order.,Customer placed a stop payment order,risk_block
+17,upi_collect_expired,Customer entered an incorrect UPI PIN,auth_failure
+3,isuer_timeout,Gateway timeout while contacting the bank,soft_decline
+11,restricted_card,this card type is not allowed for recurring payments,hard_decline
+13,authentication_timeout,3DS authentication timed out,auth_failure
+7,card_expired.,the card expiry date has passed,hard_decline
+17,upi_collect_expired.,UPI MANDATE WAS NOT APPROVED BY THE CUSTOMER,auth_failure
+15,three_ds_failed,Cardholder authentication failed.,auth_failure
+2,processing_error,the bank could not process the reuest right now,soft_decline
+4,daily_limit_exceeded,Withdrawal count limit exceeded,soft_decline
+11,restricted_card.,THIS CARD TYPE IS NOT ALLOWED FOR RECURRING PAYMENTS,hard_decline
+17,UPI_PIN_INCORRECT,Customerentered an incorrect UPI PIN.,auth_failure
+2,ISSUER_UNAVAILABLE,Temporary processng error at the bank,soft_decline
+12,standing_instruction_cancelled.,Customer has revoked the mandate,hard_decline
+11,restricted_card,This card type is not allowed for recurring payments,hard_decline
+3,gateway_timeout,"The request timedout, please try again",soft_decline
+13,3ds_timeout.,Customer authentication is required.,auth_failure
+14,incorrect_otp,The one time password has expired,auth_failure
+20,blocked_by_merchant_rules,Customer placed a stop payment order,risk_block
+6,connection_failed,connection to payment network failed,soft_decline
+4,daily_limit_exceeded,Withdrawal count limit exceeded,soft_decline
+13,authentcation_required,3ds authentication timed out,auth_failure
+14,incorrect_otp,OTP VERIFICATION FAILED,auth_failure
+19,high_risk,the transaction was declined by the risk engine,risk_block
+15,three_ds_failed,Authentication declined by issuer.,auth_failure
+12,standing_instruction_cancelled,Standing instruction no longer valid,hard_decline
+18,frauduent,Fraud check failed.,risk_block
+12,mandate_cancelled,the recurring mandate was cancelled by the customer,hard_decline
+17,upi_mandate_not_approved,Customer entered an incorrect UPI PIN,auth_failure
+6,connection_failed,Temporary network failure,soft_decline
+14,incorrect_otp,Customer entered an incorrect OTP,auth_failure
+18,suspected_fraud,FRAUD CHECK FAILED,risk_block
+10,incorrect_number,card number does not exist,hard_decline
+10,invalid_card,Invalid card number,hard_decline
+19,risk_threshold_exceeded,Blocked by issuer risk controls,risk_block
+5,card_declied,Generic decline from bank.,soft_decline
+15,three_ds_failed,Authentication declined by issuer,auth_failure
+2,issuer_unavailable,the bank could not process the request right now,soft_decline
+9,card_reported_lost_or_stolen,CARD REPORTED LOST OR STOLEN,hard_decline
+19,high_risk,Blocked by issuer risk controls,risk_block
+18,fraud_suspected,Payment blocked as potentially fraudulent,risk_block
+19,high_risk.,The transaction was declined by the risk engine,risk_block
+2,processing_error.,The bank could not process the request right now,soft_decline
+14,INVALID_OTP,OTP verification failed,auth_failure
+18,fraud_suspected.,Fraud check failed,risk_block
+19,hih_risk.,The transaction was declined by the risk engine,risk_block
+6,network_error,temporary network faiure,soft_decline
+13,authentication_timeout,Customer authentication is required,auth_failure
+9,LOST_CARD,Card reported lost or stolen,hard_decline
+19,issuer_risk_block,Blocked by issuer risk controls,risk_block
+9,pickup_card,THE CARD HAS BEEN REPORTED LOST,hard_decline
+5,card_declined,Do not honor,soft_decline
+15,3ds_failed,3DS authentication failed,auth_failure
+18,FRAUD_SUSPECTED,Issuer flagged transaction as suspected fraud,risk_block
+17,upi_pin_incorrect,Customer entered an incorrect UPI PIN,auth_failure
+12,MANDATE_REVOKED,Standing instruction no longer valid,hard_decline
+15,authntication_failed,3DS authentication failed,auth_failure
+19,issuer_risk_block,Blocked by issuer risk controls,risk_block
+10,incorret_number,The card number is incorrect,hard_decline
+4,daily_limit_exceeded,Card limit exceeded for today,soft_decline
+19,issuer_risk_block.,Risk threshold exceeded for this payment,risk_block
+4,amount_limit_exceeded,Withdrawal count limit exceeded,soft_decline
+5,do_not_honor,Do not honor,soft_decline
+14,INCORRECT_OTP,the one time password has expired,auth_failure
+19,risk_threshold_exceeded.,The transaction was declined by the risk engine,risk_block
+15,three_ds_faled,authentication declined by issuer,auth_failure
+9,lost_card,Pick up card,hard_decline
+20,stop_payment_order,CUSTOMER PLACED A STOP PAYMENT ORDER,risk_block
+6,network_error,Temporary network failure,soft_decline
+17,upi_mandate_not_approved,UPI mandate was not approved by the customer,auth_failure
+15,three_ds_failed,cardholder authentication failed.,auth_failure
+5,do_not_honor,Do not honor,soft_decline
+1,insufficient_balance,Not enough balance available,soft_decline
+13,authentication_required,Authentication was not completed in time,auth_failure
+13,AUTHENTICATION_REQUIRED,3DS authentication timed out,auth_failure
+19,hig_risk,risk threshold exceeded for this payment.,risk_block
+5,card_declined,TRANSACTION DECLINED BY THE ISSUER,soft_decline
+2,issuer_unavailable,issuer is currently unavailable try again later.,soft_decline
+13,authentication_required,Authentication was not completed in time,auth_failure
+19,risk_threshold_exceeded,blocked by issuer risk controls,risk_block
+15,3ds_failed,Authentication declined by issuer,auth_failure
+17,upi_mandate_not_approved,The UPI request expired before approval,auth_failure
+17,upi_collect_expired,Customer entered an incorrect UP PIN,auth_failure
+15,3ds_failed,Cardholder authentication failed,auth_failure
+1,INSUFFICIENT_FUNDS,Insufficient funds in account,soft_decline
+6,connection_failed,Connection to payment network failed.,soft_decline
+9,CARD_REPORTED_LOST_OR_STOLEN,pick up card,hard_decline
+20,security_violation,Blocked by fraud rules,risk_block
+10,invalid_card_number,THE CARD NUMBER IS INCORRECT,hard_decline
+14,incorrect_otp.,Customer entered an incorrect OTP,auth_failure
+20,stop_payment_order,CUSTOMER PLACED A STOP PAYMENT ORDER,risk_block
+16,INCORRECT_CVC,Invalid CVV entered,auth_failure
+8,account_closed,Account is closed.,hard_decline
+11,card_not_supported,Restricted card,hard_decline
+10,INVALID_ACCOUNT,Invalid card number,hard_decline
+6,connection_failed,Connection to payment network failed,soft_decline
+17,upi_pin_incorrect,The UPI request expired before approval,auth_failure
+18,suspected_fraud,Fraud check failed.,risk_block
+18,FRAUD_SUSPECTED,Issuer flagged transaction as suspected fraud,risk_block
+2,issuer_unavailable,bank system temporarily unavailable,soft_decline
+7,expired_card,The card expiry date has passed.,hard_decline
+16,incorrect_cvc,Invalid CVV entered,auth_failure
+2,bank_temporarily_unavailable,the bank could not process the request right now,soft_decline
+8,closed_account,Account is closed.,hard_decline
+10,invalid_card_number,TE CARD NUMBER IS INCORRECT,hard_decline
+7,card_expired,Your card is expired,hard_decline
+12,mandate_cancelled,Standing instruction no longer valid,hard_decline
+4,withdrawal_count_limit_exceeded,Daily transaction limit exceeded,soft_decline
+13,3ds_timeout,3DS authentication timed out,auth_failure
+14,otp_expired,THE ONE TIME PASSWORD HAS EXPIRED,auth_failure
+2,processing_error,TEMPORARY PROCESSING ERROR AT THE BANK,soft_decline
+8,account_closed,This account is no longer active.,hard_decline
+10,invalid_account,Invalid account number,hard_decline
+3,try_again_later,"The request timed out, please try again",soft_decline
+3,GATEWAY_TIMEOUT,ISSUER DID NOT RESPOND IN TIME,soft_decline
+6,network_error,Temporary network failure.,soft_decline
+14,otp_not_entered,The one time password has expired,auth_failure
+16,cvv_mismatch,The card security code is incorrect,auth_failure
+8,CLOSED_ACCOUNT.,This account is no longer active.,hard_decline
+9,lostcard.,Card reported lost or stolen,hard_decline
+18,suspected_fraud,Payment blocked as potentially fraudulent,risk_block
+16,cvv_mismatch,Invalid CVV entered,auth_failure
+1,insufficient_balance,NOT ENOUGH BALANCE AVAILABLE.,soft_decline
+9,pickup_card,"Stolen card, do not retry",hard_decline
+2,BANK_TEMPORARILY_UNAVAILABLE,The bank could not process the request right now,soft_decline
+20,blocke_by_merchant_rules,Customer placed a stop payment order,risk_block
+20,stop_payment_order,Blocked by fraud rules,risk_block
+7,EXPIRED_CARD,"expired card, ask customer to update",hard_decline
+18,fraud_suspected,Payment blocked as potentially fraudulent,risk_block
+13,authentication_timeout,3DS authentication timed out,auth_failure
+2,issuer_unavailable.,Bank system temporarily unavailable,soft_decline
+14,otp_expired,customer entered an incorrect otp,auth_failure
+4,amount_limit_exceeded,Daily transaction limit exceeded.,soft_decline
+20,SECURIY_VIOLATION,customer placed a stop payment order,risk_block
+2,bank_temporarily_unavailable,The bank could not process the request right now,soft_decline
+10,invalid_card_number,Invalid account number,hard_decline
+2,issuer_unavailable,Bank system temporarily unavailable,soft_decline
+2,processing_error,Bank system temporarily unavailale,soft_decline
+12,standing_instruction_cancelled,Customer has revoked the mandate.,hard_decline
+14,incorrect_otp,OTP NOT ENTERED IN TIME,auth_failure
+14,otp_expired,Customer entered an incorrect OTP,auth_failure
+12,standing_instruction_cancelled.,Customer has revoked the mandate,hard_decline
+13,3ds_timeout,Customer authentication is required,auth_failure
+7,card_expired,Card has expired,hard_decline
+18,fraud_suspected,Fraud check failed,risk_block
+15,authentication_failed,Cardholder authentication failed,auth_failure
+2,bank_temporarily_unavailable,Temporary processing error at the bank.,soft_decline
+15,authentication_failed,3DS authentication failed,auth_failure
+10,invalid_card,Invalid card number,hard_decline
+10,incorrect_number,Card nmber does not exist,hard_decline
+11,restricted_card,Restricted card,hard_decline
+1,INSUFFICIENT_BALANCE,Not enough balance available,soft_decline
+7,card_expired,"Expired card, ask customer to update",hard_decline
+6,network_error,Connection to payment network failed,soft_decline
+20,security_violation.,Blocked by fraud rules.,risk_block
+14,otp_not_entered,otp verification failed,auth_failure
+8,closed_account.,Account is closed,hard_decline
+7,EXPIRED_CARD,"Expired card, ask custmer to update",hard_decline
+17,upi_collect_expired,The UPI request expired before approval,auth_failure
+19,issuer_risk_bock,Risk threshold exceeded for this payment,risk_block
+16,cvv_mismatch,invalid cvv entered.,auth_failure
+5,generic_deline.,Do not honor,soft_decline
+17,upi_mandate_not_approved,UPI mandate was not approved by the customer.,auth_failure
+3,try_again_lter,Issuer did not respond in time,soft_decline
+12,mandate_cancelled,Standing instruction no longer valid,hard_decline
+8,CLOSED_ACCOUNT,Account is closed,hard_decline
+7,EXPIRED_CARD,The card expiry date has passed,hard_decline

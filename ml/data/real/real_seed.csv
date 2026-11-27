@@ -1,0 +1,238 @@
+family,decline_code,decline_message,label,label_source
+braintree:2000,2000,Do Not Honor,soft_decline,braintree_type
+braintree:2001,2001,Insufficient Funds,soft_decline,braintree_type
+braintree:2002,2002,Limit Exceeded,soft_decline,braintree_type
+braintree:2003,2003,Cardholder's Activity Limit Exceeded,soft_decline,braintree_type
+braintree:2004,2004,Expired Card,hard_decline,braintree_type
+braintree:2005,2005,Invalid Credit Card Number,hard_decline,braintree_type
+braintree:2006,2006,Invalid Expiration Date,hard_decline,braintree_type
+braintree:2007,2007,No Account,hard_decline,braintree_type
+braintree:2008,2008,Card Account Length Error,hard_decline,braintree_type
+braintree:2009,2009,No Such Issuer,hard_decline,braintree_type
+braintree:2010,2010,Card Issuer Declined CVV,auth_failure,override
+braintree:2011,2011,Voice Authorization Required,unknown,override
+braintree:2012,2012,Processor Declined – Possible Lost Card,hard_decline,braintree_type
+braintree:2013,2013,Processor Declined – Possible Stolen Card,hard_decline,braintree_type
+braintree:2014,2014,Processor Declined – Fraud Suspected,risk_block,override
+braintree:2015,2015,Transaction Not Allowed,unknown,override
+braintree:2016,2016,Duplicate Transaction,unknown,override
+braintree:2017,2017,Cardholder Stopped Billing,hard_decline,braintree_type
+braintree:2018,2018,Cardholder Stopped All Billing,hard_decline,braintree_type
+braintree:2019,2019,Invalid Transaction,unknown,override
+braintree:2020,2020,Violation,risk_block,override
+braintree:2021,2021,Security Violation,risk_block,override
+braintree:2022,2022,Declined – Updated Cardholder Available,hard_decline,braintree_type
+braintree:2023,2023,Processor Does Not Support This Feature,unknown,override
+braintree:2024,2024,Card Type Not Enabled,unknown,override
+braintree:2025,2025,Set Up Error – Merchant,unknown,override
+braintree:2026,2026,Invalid Merchant ID,unknown,override
+braintree:2027,2027,Set Up Error – Amount,unknown,override
+braintree:2028,2028,Set Up Error – Hierarchy,unknown,override
+braintree:2029,2029,Set Up Error – Card,unknown,override
+braintree:2030,2030,Set Up Error – Terminal,unknown,override
+braintree:2031,2031,Encryption Error,unknown,override
+braintree:2032,2032,Surcharge Not Permitted,unknown,override
+braintree:2033,2033,Inconsistent Data,unknown,override
+braintree:2034,2034,No Action Taken,unknown,override
+braintree:2035,2035,Partial Approval For Amount In Group III Version,unknown,override
+braintree:2036,2036,Authorization could not be found,unknown,override
+braintree:2037,2037,Already Reversed,unknown,override
+braintree:2038,2038,Processor Declined,unknown,override
+braintree:2039,2039,Invalid Authorization Code,unknown,override
+braintree:2040,2040,Invalid Store,unknown,override
+braintree:2041,2041,Declined – Call For Approval,unknown,override
+braintree:2042,2042,Invalid Client ID,unknown,override
+braintree:2043,2043,"Error – Do Not Retry, Call Issuer",hard_decline,braintree_type
+braintree:2044,2044,Declined – Call Issuer,unknown,override
+braintree:2045,2045,Invalid Merchant Number,unknown,override
+braintree:2046,2046,Declined,unknown,override
+braintree:2047,2047,Call Issuer. Pick Up Card,hard_decline,braintree_type
+braintree:2048,2048,Invalid Amount,unknown,override
+braintree:2049,2049,Invalid SKU Number,unknown,override
+braintree:2050,2050,Invalid Credit Plan,unknown,override
+braintree:2051,2051,Credit Card Number does not match method of payment,unknown,override
+braintree:2052,2052,Invalid level III Purchase,unknown,override
+braintree:2053,2053,Card reported as lost or stolen,hard_decline,braintree_type
+braintree:2054,2054,Reversal amount does not match authorization amount,unknown,override
+braintree:2055,2055,Invalid Transaction Division Number,unknown,override
+braintree:2056,2056,Transaction amount exceeds the transaction division limit,unknown,override
+braintree:2057,2057,Issuer or Cardholder has put a restriction on the card,soft_decline,braintree_type
+braintree:2058,2058,Merchant not Mastercard SecureCode enabled,unknown,override
+braintree:2059,2059,Address Verification Failed,auth_failure,override
+braintree:2060,2060,Address Verification and Card Security Code Failed,auth_failure,override
+braintree:2061,2061,Invalid Transaction Data,unknown,override
+braintree:2062,2062,Invalid Tax Amount,unknown,override
+braintree:2063,2063,PayPal Business Account preference resulted in the transaction failing,unknown,override
+braintree:2064,2064,Invalid Currency Code,unknown,override
+braintree:2065,2065,Refund Time Limit Exceeded,unknown,override
+braintree:2066,2066,PayPal Business Account Restricted,unknown,override
+braintree:2067,2067,Authorization Expired,unknown,override
+braintree:2068,2068,PayPal Business Account Locked or Closed,unknown,override
+braintree:2069,2069,PayPal Blocking Duplicate Order IDs,unknown,override
+braintree:2070,2070,PayPal Buyer Revoked Pre-Approved Payment Authorization,hard_decline,braintree_type
+braintree:2071,2071,PayPal Payee Account Invalid Or Does Not Have a Confirmed Email,unknown,override
+braintree:2072,2072,PayPal Payee Email Incorrectly Formatted,unknown,override
+braintree:2073,2073,PayPal Validation Error,unknown,override
+braintree:2074,2074,"Funding Instrument In The PayPal Account Was Declined By The Processor Or Bank, Or It Can't Be Used For This Payment",hard_decline,braintree_type
+braintree:2075,2075,Payer Account Is Locked Or Closed,hard_decline,braintree_type
+braintree:2076,2076,Payer Cannot Pay For This Transaction With PayPal,hard_decline,braintree_type
+braintree:2077,2077,Transaction Refused Due To PayPal Risk Model,risk_block,override
+braintree:2078,2078,Invalid Secure Payment Data,unknown,override
+braintree:2079,2079,PayPal Merchant Account Configuration Error,unknown,override
+braintree:2080,2080,Invalid user credentials,unknown,override
+braintree:2081,2081,PayPal pending payments are not supported,unknown,override
+braintree:2082,2082,PayPal Domestic Transaction Required,unknown,override
+braintree:2083,2083,PayPal Phone Number Required,unknown,override
+braintree:2084,2084,PayPal Tax Info Required,unknown,override
+braintree:2085,2085,PayPal Payee Blocked Transaction,unknown,override
+braintree:2086,2086,PayPal Transaction Limit Exceeded,hard_decline,braintree_type
+braintree:2087,2087,PayPal reference transactions not enabled for your account,unknown,override
+braintree:2088,2088,Currency not enabled for your PayPal seller account,unknown,override
+braintree:2089,2089,PayPal payee email permission denied for this request,unknown,override
+braintree:2090,2090,PayPal or Venmo account not configured to refund more than settled amount,unknown,override
+braintree:2091,2091,Currency of this transaction must match currency of your PayPal account,unknown,override
+braintree:2092,2092,No Data Found - Try Another Verification Method,auth_failure,override
+braintree:2093,2093,PayPal payment method is invalid,unknown,override
+braintree:2094,2094,PayPal payment has already been completed,unknown,override
+braintree:2095,2095,PayPal refund is not allowed after partial refund,unknown,override
+braintree:2096,2096,PayPal buyer account can't be the same as the seller account,unknown,override
+braintree:2097,2097,PayPal authorization amount limit exceeded,unknown,override
+braintree:2098,2098,PayPal authorization count limit exceeded,unknown,override
+braintree:2099,2099,Cardholder Authentication Required,auth_failure,override
+braintree:2100,2100,PayPal channel initiated billing not enabled for your account,unknown,override
+braintree:2101,2101,Additional authorization required,auth_failure,override
+braintree:2102,2102,Incorrect PIN,auth_failure,override
+braintree:2103,2103,PIN try exceeded,auth_failure,override
+braintree:2104,2104,Offline Issuer Declined,unknown,override
+braintree:2105,2105,Cannot Authorize at this time (Life cycle),soft_decline,braintree_type
+braintree:2106,2106,Cannot Authorize at this time (Policy),soft_decline,braintree_type
+braintree:2107,2107,Card Not Activated,hard_decline,braintree_type
+braintree:2108,2108,Closed Card,hard_decline,braintree_type
+braintree:3000,3000,Processor Network Unavailable – Try Again,soft_decline,braintree_type
+visa:01,01,Refer to card issuer.,unknown,draft
+visa:02,02,"Refer to card issuer, special condition.",unknown,draft
+visa:03,03,Invalid merchant.,unknown,draft
+visa:04,04,Pick up card (no fraud).,hard_decline,draft
+visa:05,05,Don't honour.,soft_decline,draft
+visa:06,06,Error.,soft_decline,draft
+visa:07,07,"Pick up card, special condition (fraud account).",risk_block,draft
+visa:12,12,Invalid transaction.,unknown,draft
+visa:13,13,Invalid amount or currency conversion field overflow.,unknown,draft
+visa:14,14,Invalid account number (no such number).,hard_decline,draft
+visa:15,15,No such issuer.,hard_decline,draft
+visa:19,19,Re-enter transaction.,soft_decline,draft
+visa:21,21,No action taken.,unknown,draft
+visa:25,25,Unable to locate record in file.,unknown,draft
+visa:28,28,File temporarily not available for update or enquiry.,soft_decline,draft
+visa:39,39,No credit account.,hard_decline,draft
+visa:41,41,"Lost card, pick up (fraud account).",hard_decline,draft
+visa:43,43,"Stolen card, pick up (fraud account).",hard_decline,draft
+visa:46,46,Closed account.,hard_decline,draft
+visa:51,51,Not sufficient funds.,soft_decline,draft
+visa:52,52,No checking account.,hard_decline,draft
+visa:53,53,No savings account.,hard_decline,draft
+visa:54,54,Expired card or expiry date is missing.,hard_decline,draft
+visa:55,55,Incorrect PIN or PIN missing.,auth_failure,draft
+visa:57,57,Transaction not permitted to cardholder.,hard_decline,draft
+visa:58,58,Transaction not allowed at terminal.,unknown,draft
+visa:59,59,Suspected fraud.,risk_block,draft
+visa:61,61,Exceeds approval amount limit.,soft_decline,draft
+visa:62,62,Restricted card (card invalid in this region or country).,hard_decline,draft
+visa:63,63,Security violation (source isn't correct issuer).,risk_block,draft
+visa:64,64,Transaction does not fulfill AML requirement.,risk_block,draft
+visa:65,65,Exceeds withdrawal frequency limit.,soft_decline,draft
+visa:75,75,Allowable number of PIN entry tries exceeded.,auth_failure,draft
+visa:78,78,"Blocked, first used - transaction from new cardholder, and card not properly unblocked",hard_decline,draft
+visa:82,82,"Negative CAM, dCVV, iCVV, or CVV results.",auth_failure,draft
+visa:91,91,Issuer or switch inoperative and STIP not applicable or not available for this transaction; time-out when no stand-in.,soft_decline,draft
+visa:92,92,Financial institution or intermediate network facility can't be found for routing.,unknown,draft
+visa:93,93,Transaction can't be completed - violation of law.,risk_block,draft
+visa:94,94,Request is identified as a duplicate.,unknown,draft
+visa:96,96,System malfunction.,soft_decline,draft
+visa:1A,1A,Additional customer authentication required.,auth_failure,draft
+visa:6P,6P,Verification data failed.,auth_failure,draft
+visa:N5,N5,Ineligible for resubmission.,hard_decline,draft
+visa:N7,N7,Decline for CVV2 failure.,auth_failure,draft
+visa:N8,N8,Transaction amount exceeds preauthorised approval amount.,soft_decline,draft
+visa:Q1,Q1,Card authentication failed.,auth_failure,draft
+visa:R0,R0,Stop this payment.,hard_decline,draft
+visa:R1,R1,Stop all future payments.,hard_decline,draft
+visa:R3,R3,Stop all merchants.,hard_decline,draft
+visa:5C,5C,Transaction not supported/blocked by issuer.,hard_decline,draft
+visa:9G,9G,Blocked by cardholder/contact cardholder.,hard_decline,draft
+mastercard:01,01,Refer to card issuer.,unknown,draft
+mastercard:12,12,Invalid transaction.,unknown,draft
+mastercard:15,15,Invalid issuer.,hard_decline,draft
+mastercard:30,30,Format error.,unknown,draft
+mastercard:91,91,Authorisation system or issuer system inoperative.,soft_decline,draft
+mastercard:92,92,Unable to route the transaction.,unknown,draft
+mastercard:94,94,Duplicate transmission detected.,unknown,draft
+mastercard:96,96,System error.,soft_decline,draft
+mastercard:04,04,Capture card.,hard_decline,draft
+mastercard:41,41,Lost card.,hard_decline,draft
+mastercard:43,43,Stolen card.,hard_decline,draft
+mastercard:55,55,Invalid PIN.,auth_failure,draft
+mastercard:63,63,Security violation.,risk_block,draft
+mastercard:51 MAC 01,51 MAC 01,Insufficient funds / over credit limit. New account information available.,hard_decline,mastercard_mac
+mastercard:51 MAC 02,51 MAC 02,Insufficient funds / over credit limit. Try again later.,soft_decline,mastercard_mac
+mastercard:51 MAC 03,51 MAC 03,Insufficient funds / over credit limit. Do not try again.,hard_decline,mastercard_mac
+mastercard:03,03,Invalid merchant.,unknown,draft
+mastercard:13,13,Invalid amount.,unknown,draft
+mastercard:57,57,Transaction not permitted to issuer / cardholder.,hard_decline,draft
+mastercard:58,58,Transaction not permitted to acquirer / terminal.,unknown,draft
+mastercard:61,61,Exceeds withdrawal amount limit.,soft_decline,draft
+mastercard:62,62,Restricted card.,hard_decline,draft
+mastercard:65,65,Exceeds withdrawal count limit (or Identity Check soft-decline of EMV 3DS authentication).,auth_failure,draft
+mastercard:75,75,Allowable number of PIN tries exceeded.,auth_failure,draft
+mastercard:14 MAC 01,14 MAC 01,Invalid card number. New account information available.,hard_decline,mastercard_mac
+mastercard:14 MAC 03,14 MAC 03,Invalid card number. Do not try again.,hard_decline,mastercard_mac
+mastercard:54 MAC 01,54 MAC 01,Expired card. New account information available.,hard_decline,mastercard_mac
+mastercard:54 MAC 03,54 MAC 03,Expired card. Do not try again.,hard_decline,mastercard_mac
+mastercard:72,72,Account not yet activated.,hard_decline,draft
+mastercard:79 MAC 01,79 MAC 01,Expired card (lifecycle decline; updated card data available).,hard_decline,mastercard_mac
+mastercard:79 MAC 02,79 MAC 02,Invalid credentials (lifecycle decline; can retry later).,soft_decline,mastercard_mac
+mastercard:79 MAC 03,79 MAC 03,Account credentials not found (don't retry).,hard_decline,mastercard_mac
+mastercard:82 MAC 03,82 MAC 03,"Invalid transaction or merchant, don't retry.",hard_decline,mastercard_mac
+mastercard:83 MAC 01,83 MAC 01,Suspected fraud. New account information available.,risk_block,mastercard_mac
+mastercard:83 MAC 02,83 MAC 02,Retry the transaction later.,soft_decline,mastercard_mac
+mastercard:83 MAC 03,83 MAC 03,Suspected fraud. Do not try again.,risk_block,mastercard_mac
+mastercard:05 MAC 01,05 MAC 01,Don't honour. New account information available.,hard_decline,mastercard_mac
+mastercard:05 MAC 03,05 MAC 03,Don't honour. Do not try again.,hard_decline,mastercard_mac
+amex:100,100,Deny.,soft_decline,draft
+amex:101,101,Expired card / invalid expiry.,hard_decline,draft
+amex:106,106,Exceeded PIN attempts.,auth_failure,draft
+amex:107,107,Call issuer.,unknown,draft
+amex:109,109,Invalid merchant.,unknown,draft
+amex:110,110,Invalid amount.,unknown,draft
+amex:111,111,Invalid account.,hard_decline,draft
+amex:116,116,Not sufficient funds.,soft_decline,draft
+amex:117,117,Invalid PIN.,auth_failure,draft
+amex:119,119,Not enrolled / permitted.,hard_decline,draft
+amex:121,121,Limit exceeded.,soft_decline,draft
+amex:122,122,Invalid CVC.,auth_failure,draft
+amex:130,130,Additional customer authentication required.,auth_failure,draft
+amex:187,187,Deny - new card issued.,hard_decline,draft
+amex:188,188,Deny - account cancelled.,hard_decline,draft
+amex:189,189,Deny - cancelled merchant.,unknown,draft
+amex:200,200,Deny - pick up card.,hard_decline,draft
+amex:912,912,Issuer not available.,soft_decline,draft
+discover:05,05,Don't honour.,soft_decline,draft
+discover:04,04,Capture card.,hard_decline,draft
+discover:07,07,"Pick-up card, special condition.",risk_block,draft
+discover:14,14,Invalid card number.,hard_decline,draft
+discover:41,41,Lost card.,hard_decline,draft
+discover:43,43,Stolen card.,hard_decline,draft
+discover:51,51,Decline.,soft_decline,draft
+discover:54,54,Expired card.,hard_decline,draft
+discover:55,55,Invalid PIN.,auth_failure,draft
+discover:57,57,Transaction not permitted to issuer / cardholder.,hard_decline,draft
+discover:59,59,Suspected fraud.,risk_block,draft
+discover:61,61,Exceeds withdrawal amount limit.,soft_decline,draft
+discover:62,62,Restricted card.,hard_decline,draft
+discover:63,63,Security violation.,risk_block,draft
+discover:65,65,Exceeds withdrawal count limit.,soft_decline,draft
+discover:75,75,Allowable number of PIN tries exceeded.,auth_failure,draft
+discover:87,87,Network unavailable.,soft_decline,draft
+discover:91,91,Authorisation system or issuer system inoperative.,soft_decline,draft
+discover:96,96,System malfunction.,soft_decline,draft
+discover:N7,N7,Decline for AVS or CID mismatch.,auth_failure,draft
